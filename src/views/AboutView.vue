@@ -1,5 +1,11 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>About Me</h1>
+    <p>I live in Colorado with my wife and our 2 dogs, 3 cats, and our other animals.</p>
+    <p>My career is in software development, with a background in frontend, backend, and database procedures.  My current focus is mostly on the frontend, but I am flexible moving forward.
+       My hobbies include writing, sketching, pottery, TTRPGs, and I enjoy reading or watching (sometimes really bad) scifi and fantasy books and movies.</p>
+    <p>In fact, the name of this website is in part a homage to the tv show Mystery Science Theater 3000.
+       It is a show where the characters make fun of really bad movies under the pretense of being trapped in a science experiment while in a space station orbiting... the moon I think?  ...it was never really made clear.
+       Anyway, I used to watch that show all the time with my mother as a child, and still have a fondness for it today.</p>
   </div>
 </template>

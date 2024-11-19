@@ -4,9 +4,10 @@ import { RouterLink } from 'vue-router';
 
 <template>
   <nav>
-    <div class="myname">James Armbrust</div>
+    <div class="my-name">
+      <RouterLink to="/">James Armbrust</RouterLink>
+    </div>
     <div class="routes">
-      <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/blog">Blog</RouterLink>
       <RouterLink to="/resume">Resume</RouterLink>
       <RouterLink to="/about">About</RouterLink>
@@ -21,9 +22,13 @@ nav {
   height: 45px;
   display: flex;
   justify-content: space-between;
-  .myname {
+  .my-name {
     font-weight: 700;
     font-size: 30px;
+    a {
+      text-decoration: none;
+      color: #f8f8f8;
+    }
   }
   .routes {
     a.router-link-exact-active {

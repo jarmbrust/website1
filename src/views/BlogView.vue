@@ -1,9 +1,5 @@
 <template>
   <div>
-    <h1>Blog</h1>
+    <p>Under construction (website is brand new as of late 11/2024)</p>
   </div>
 </template>
-
-<style lang="scss" scoped>
-
-</style>
