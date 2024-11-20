@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
+import BlogView from '@/views/BlogView.vue';
 
 const routes = [
   {
@@ -8,7 +9,7 @@ const routes = [
   },
   {
     path: '/blog',
-    component: () => import('@/views/BlogView.vue'),
+    component: BlogView,
     meta: {
       redirectOnRefresh: '/'
     }
