@@ -10,21 +10,21 @@ const routes = [
     path: '/blog',
     component: () => import('@/views/BlogView.vue'),
     meta: {
-      redirectOnRefresh: '/blog'
+      redirectOnRefresh: '/'
     }
   },
   {
     path: '/resume',
     component: () => import('@/views/ResumeView.vue'),
     meta: {
-      redirectOnRefresh: '/resume'
+      redirectOnRefresh: '/'
     }
   },
   {
     path: '/about',
     component: () => import('@/views/AboutView.vue'),
     meta: {
-      redirectOnRefresh: '/about'
+      redirectOnRefresh: '/'
     }
   },
 ];
