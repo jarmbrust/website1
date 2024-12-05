@@ -3,9 +3,6 @@ body {
   margin: 0 30px;
   color: #f8f8f8;
   background: rgb(32, 37, 39);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
   line-height: 1.6;
   font-family:
     Inter,
