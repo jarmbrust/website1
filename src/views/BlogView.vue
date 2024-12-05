@@ -1,5 +1,5 @@
 <template>
   <div>
-    <p>Under construction (website is brand new as of late 11/2024)</p>
+    <p>...nothing yet to say, but this will be updated in the near future!</p>
   </div>
 </template>
