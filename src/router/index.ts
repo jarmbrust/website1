@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
-import BlogView from '@/views/BlogView.vue';
 
 const routes = [
   {
@@ -9,23 +8,23 @@ const routes = [
   },
   {
     path: '/blog',
-    component: BlogView,
+    component: () => import('@/views/BlogView.vue'),
     meta: {
-      redirectOnRefresh: '/'
+      title: 'James Armbrust - Blog',
     }
   },
   {
     path: '/resume',
     component: () => import('@/views/ResumeView.vue'),
     meta: {
-      redirectOnRefresh: '/'
+      title: 'James Armbrust - Resume',
     }
   },
   {
     path: '/about',
     component: () => import('@/views/AboutView.vue'),
     meta: {
-      redirectOnRefresh: '/'
+      title: 'James Armbrust - About',
     }
   },
 ];
@@ -33,6 +32,12 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, _from, next) => {
+  console.log(to);
+  document.title = (to.meta.title as string) || 'James Armbrust';
+  next();
 });
 
 export default router;
