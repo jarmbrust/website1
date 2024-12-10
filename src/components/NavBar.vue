@@ -4,8 +4,9 @@ import { RouterLink } from 'vue-router';
 
 <template>
   <nav>
-    <div class="my-name">
-      <RouterLink to="/">James Armbrust</RouterLink>
+    <div class="my-name-and-pic">
+      <img class="pic-of-me" src="../assets/james_edit4.jpeg" alt="me" />
+      <span class="my-name"><RouterLink to="/">James Armbrust</RouterLink></span>
     </div>
     <div class="routes">
       <RouterLink to="/blog">Blog</RouterLink>
@@ -16,18 +17,31 @@ import { RouterLink } from 'vue-router';
 </template>
 
 <style lang="scss" scoped>
+@use '../assets/_variables.scss';
+
 nav {
   font-size: 22px;
   margin: 10px 0;
-  height: 45px;
+  min-height: 45px;
   display: flex;
   justify-content: space-between;
-  .my-name {
+  @media (max-width: variables.$device-width) {
+    flex-direction: column;
+  }
+  .my-name-and-pic {
     font-weight: 700;
     font-size: 30px;
+    display: flex;
     a {
       text-decoration: none;
       color: #f8f8f8;
+    }
+    .pic-of-me {
+      height: 50px;
+      width: 50px;
+    }
+    .my-name {
+      padding: 0 10px;
     }
   }
   .routes {
