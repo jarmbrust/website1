@@ -14,7 +14,7 @@ const login = async () => {
     console.log('username.value: ', username.value);
     const response = await axios.post('/.netlify/functions/login', {
       username: username.value,
-      password: password.value
+      password: password.value,
     });
     if (response.data.success) {
       console.log('Login successful!!!');

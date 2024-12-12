@@ -1,4 +1,3 @@
-// import { Context } from '@netlify/functions'
 import bcrypt from 'bcrypt';
 import { MongoClient } from 'mongodb';
 import 'dotenv/config';
@@ -6,7 +5,7 @@ import 'dotenv/config';
 const uri = process.env.MONGODB_URI as string;
 
 export default async (request: Request) => {
-  const client = new MongoClient(uri);//, { useNewUrlParser: true, useUnifiedTopology: true });
+  const client = new MongoClient(uri);
 
   try {
     await client.connect();
