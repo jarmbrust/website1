@@ -27,6 +27,13 @@ const routes = [
       title: 'James Armbrust - About',
     }
   },
+  {
+    path: '/login',
+    component: () => import('@/components/LoginPage.vue'),
+    meta: {
+      title: 'James Armbrust - Login',
+    }
+  },
 ];
 
 const router = createRouter({
@@ -35,7 +42,6 @@ const router = createRouter({
 });
 
 router.beforeEach((to, _from, next) => {
-  console.log(to);
   document.title = (to.meta.title as string) || 'James Armbrust';
   next();
 });

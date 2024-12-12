@@ -12,6 +12,7 @@ import { RouterLink } from 'vue-router';
       <RouterLink to="/blog">Blog</RouterLink>
       <RouterLink to="/resume">Resume</RouterLink>
       <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/login">Login</RouterLink>
     </div>
   </nav>
 </template>
