@@ -11,12 +11,13 @@ const registerError = ref<string | null>(null);
 
 const login = async () => {
   try {
+    console.log('username.value: ', username.value);
     const response = await axios.post('/.netlify/functions/login', {
       username: username.value,
       password: password.value
     });
     if (response.data.success) {
-      alert('Login successful!');
+      console.log('Login successful!!!');
     } else {
       error.value = 'Invalid email or password';
     }
@@ -27,12 +28,12 @@ const login = async () => {
 
 const register = async () => {
   try {
-    const response = await axios.post('/.netlify/functions/registerUser', {
+    const response = await axios.post('/.netlify/functions/register', {
       username: registerUsername.value,
       password: registerPassword.value
     });
     if (response.data.success) {
-      alert('Registration successful!');
+      console.log('Registration successful!!!');
     } else {
       registerError.value = 'Invalid username or password';
     }

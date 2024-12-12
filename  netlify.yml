@@ -1,7 +1,0 @@
-functions:
-  registerUser:
-    main: netlify/functions/registerUser.main
-    events:
-      - http:
-          path: /registerUser
-          method: post

@@ -10,6 +10,10 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  server: {
+    port: 3000,
+    historyApiFallback: true,
+  } as ServerOptions,
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -20,7 +24,4 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
   },
-  server: {
-    historyApiFallback: true,
-  } as ServerOptions,
 })
