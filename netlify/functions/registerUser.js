@@ -28,11 +28,12 @@ async function main() {
 
 main().catch(console.error);
 
-const createUser = async (client, newUser) => {
+async function createUser(client, newUser) {
   const result = await client.db('james3k_db').collection('users').insertOne(newUser);
   console.log(`New listing created with the following id: ${result.insertedId}`);
-}
-async function listDatabases(client){
+};
+
+async function listDatabases(client) {
   databasesList = await client.db().admin().listDatabases();
   console.log("Databases:");
   databasesList.databases.forEach(db => console.log(` - ${db.name}`));
