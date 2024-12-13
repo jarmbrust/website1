@@ -5,6 +5,7 @@ import { MongoClient } from 'mongodb';
 const uri = process.env.MONGODB_URI2 as string;
 
 export default async (request: Request) => {
+  console.log('Connecting to MongoDB...');
   const client = new MongoClient(uri);
   // const client = new MongoClient(uri, {
   //   serverApi: {
@@ -13,6 +14,7 @@ export default async (request: Request) => {
   //     deprecationErrors: true,
   //   }
   // });
+  console.log('Connected to MongoDB!');
 
   try {
     await client.connect();
