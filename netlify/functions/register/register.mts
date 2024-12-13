@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import 'dotenv/config';
 
-const uri = process.env.MONGODB_URI_PROD as string;
+const uri = process.env.MONGODB_URI2 as string;
 const saltRounds = 10; // Number of salt rounds for bcrypt
 
 export default async (request: Request) => {
@@ -21,7 +21,7 @@ export default async (request: Request) => {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const result = await client.db('james3k_prod').collection('users').insertOne({username, hashedPassword});
 
-    console.log(`New listing created with the following id: ${result.insertedId}`);
+    console.log(`New user created with the following id: ${result.insertedId}`);
 
   } finally {
       await client.close();
