@@ -7,7 +7,7 @@
     "dev": "vite",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "build": "vite build",
+    "build-only": "vite build",
     "serve": "vite preview",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --fix"
