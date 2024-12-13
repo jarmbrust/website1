@@ -1,28 +1,21 @@
 import bcrypt from 'bcrypt';
-import { MongoClient } from 'mongodb';
+import { MongoClient, ServerApiVersion } from 'mongodb';
 import 'dotenv/config';
 
-const uri = process.env.MONGODB_URI as string;
+const uri = process.env.MONGODB_UR2 as string;
 const saltRounds = 10; // Number of salt rounds for bcrypt
 
 export default async (request: Request) => {
 
-  console.log('Connecting to MongoDB...');
-  const client = new MongoClient(uri);
-
-  // const client = new MongoClient(uri, {
-  //   serverApi: {
-  //     version: ServerApiVersion.v1,
-  //     strict: true,
-  //     deprecationErrors: true,
-  //   }
-  // });
-
-
-  // const client = new MongoClient(uri, {
-  //   connectTimeoutMS: 60000, // 1 minute timeout
-  // });
-  console.log('Connected to MongoDB!');
+  console.log('Connecting to MongoDB (register)...');
+  const client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
+  });
+  console.log('Connected to MongoDB(register)!');
 
   try {
     await client.connect();
