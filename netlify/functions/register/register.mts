@@ -6,7 +6,10 @@ const uri = process.env.MONGODB_URI2 as string;
 const saltRounds = 10; // Number of salt rounds for bcrypt
 
 export default async (request: Request) => {
-  // const client = new MongoClient(uri);
+
+  console.log('Connecting to MongoDB...');
+  const client = new MongoClient(uri);
+
   // const client = new MongoClient(uri, {
   //   serverApi: {
   //     version: ServerApiVersion.v1,
@@ -15,10 +18,10 @@ export default async (request: Request) => {
   //   }
   // });
 
-  console.log('Connecting to MongoDB...');
-  const client = new MongoClient(uri, {
-    connectTimeoutMS: 60000, // 1 minute timeout
-  });
+
+  // const client = new MongoClient(uri, {
+  //   connectTimeoutMS: 60000, // 1 minute timeout
+  // });
   console.log('Connected to MongoDB!');
 
   try {

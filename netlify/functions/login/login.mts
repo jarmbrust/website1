@@ -24,7 +24,7 @@ export default async (request: Request) => {
     console.log('user:::', user, username);
 
     if (user) {
-      const result = await client.db('james3k_db').collection('users').findOne({ username });
+      const result = await client.db('james3k_prod').collection('users').findOne({ username });
       console.log('result:::', result);
       const match = await bcrypt.compare(password, result?.hashedPassword);
 
