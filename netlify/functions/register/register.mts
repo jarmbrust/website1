@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import 'dotenv/config';
 
-const uri = process.env.MONGODB_URI as string;
+const uri = process.env.MONGODB_URI_PROD as string;
 const saltRounds = 10; // Number of salt rounds for bcrypt
 
 export default async (request: Request) => {
