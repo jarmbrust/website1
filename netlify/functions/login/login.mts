@@ -1,19 +1,19 @@
 import bcrypt from 'bcrypt';
-import { MongoClient } from 'mongodb';
+import { MongoClient, ServerApiVersion } from 'mongodb';
 // import 'dotenv/config';
 
 const uri = process.env.MONGODB_URI as string;
 
 export default async (request: Request) => {
   console.log('Connecting to MongoDB...');
-  const client = new MongoClient(uri);
-  // const client = new MongoClient(uri, {
-  //   serverApi: {
-  //     version: ServerApiVersion.v1,
-  //     strict: true,
-  //     deprecationErrors: true,
-  //   }
-  // });
+  // const client = new MongoClient(uri);
+  const client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
+  });
   console.log('Connected to MongoDB!');
 
   try {
