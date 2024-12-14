@@ -29,7 +29,7 @@ const routes = [
   },
   {
     path: '/login',
-    component: () => import('@/components/LoginPage.vue'),
+    component: () => import('@/components/login/UserPage.vue'),
     meta: {
       title: 'James Armbrust - Login',
     }

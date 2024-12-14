@@ -1,31 +1,54 @@
 import bcrypt from 'bcrypt';
-import { MongoClient, ServerApiVersion } from 'mongodb';
-import 'dotenv/config';
+import { Collection, MongoClient, ServerApiVersion } from 'mongodb';
+// import 'dotenv/config';
+import { ref } from 'vue';
 
-const uri = process.env.MONGODB_UR2 as string;
 const saltRounds = 10; // Number of salt rounds for bcrypt
+const users = ref<Collection<Document> | null>(null);
+const client = ref<MongoClient | null>(null);
 
 export default async (request: Request) => {
 
-  console.log('Connecting to MongoDB (register)...');
-  const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    }
-  });
-  console.log('Connected to MongoDB(register)!');
-
   try {
-    await client.connect();
+    const connectionString = process.env.MONGODB_URI2;
+    if (!connectionString) {
+      console.error('MONGODB_URI environment variable is not set');
+    }
+    client.value = new MongoClient(connectionString as string, {
+      serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+      }
+    });
+    const database = client.value.db('james3k_prod');
+    users.value = database.collection('users');
+    console.log('Connected to MongoDB (register)!', client);
+
+    await client.value.connect();
     const { username, password } = await request.json()
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const result = await client.db('james3k_prod').collection('users').insertOne({username, hashedPassword});
 
+    const data = {
+      "username": username,
+      "password": hashedPassword
+    };
+
+    const result = await client.value.db('james3k_prod').collection('users').insertOne(data);
     console.log(`New user created with the following id: ${result.insertedId}`);
 
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    return new Response(JSON.stringify({ error: 'Error connecting to MongoDB' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   } finally {
-      await client.close();
+    await client.value?.close();
   }
-}
+};
+
