@@ -7,7 +7,11 @@ const password = ref('');
 const error = ref<string | null>(null);
 const userMessage = ref('');
 
+// TODO: check if the username already exists and return an error if it does,
+// or handle that in mongodb...
 const register = async () => {
+  error.value = null;
+  userMessage.value = '';
   try {
     const response = await axios.post('/.netlify/functions/register', {
       username: username.value,
@@ -16,12 +20,21 @@ const register = async () => {
     if (response.data.success) {
       console.log('Registration successful!');
       userMessage.value = 'Registration successful!';
+      resetInputs(true);
     } else {
       error.value = 'Invalid username or password';
     }
   } catch (err) {
-    error.value = `An error occurred ${username.value}. Please try again: ${err}`;
+    error.value = `An error occurred ${username.value}: ${err}`;
+    resetInputs();
   }
+};
+
+const resetInputs = (resetAll = false) => {
+  if (resetAll) {
+    username.value = '';
+  }
+  password.value = '';
 };
 </script>
 
@@ -40,7 +53,6 @@ const register = async () => {
       <button type="submit">Register</button>
     </form>
     <div v-if="error">{{ error }}</div>
-    <div v-else-if="!username || !password">Please enter a username and password</div>
     <div v-else>{{ userMessage }}</div>
   </div>
 </template>

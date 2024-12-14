@@ -2,7 +2,9 @@
 import { ref } from 'vue';
 import axios, { AxiosError } from 'axios';
 import { type ErrorData } from '@/types/types';
+import { useLoginStore } from '@/stores/loginStore';
 
+const loginStore = useLoginStore();
 const username = ref('');
 const password = ref('');
 const error = ref<string | null>(null);
@@ -10,6 +12,8 @@ const userMessage = ref('');
 
 const login = async () => {
   error.value = null;
+  userMessage.value = '';
+  loginStore.logout();
   try {
     const response = await axios.post('/.netlify/functions/login', {
       username: username.value,
@@ -18,16 +22,19 @@ const login = async () => {
     if (response.data.success) {
       console.log('Login successful!');
       userMessage.value = 'Login successful!';
+      loginStore.login();
+      resetInputs(true);
     } else {
-      error.value = 'Invalid email or password, please try again.';
+      userMessage.value = 'Invalid username or password';
     }
   } catch (err: unknown) {
     const axiosError = err as AxiosError;
     if (axiosError.response) {
       const errorData = axiosError.response.data as ErrorData;
       if (errorData && errorData?.error) {
-        // TODO: don't surface all error messages for security reasons.
+        // TODO: don't surface all error messages...
         error.value = errorData.error;
+        resetInputs();
       } else {
         error.value = 'An error occurred. Please try again.';
       }
@@ -35,6 +42,13 @@ const login = async () => {
       error.value = 'An error occurred. Please try again.';
     }
   }
+};
+
+const resetInputs = (resetAll = false) => {
+  if (resetAll) {
+    username.value = '';
+  }
+  password.value = '';
 };
 </script>
 
@@ -53,7 +67,6 @@ const login = async () => {
       <button type="submit">Login</button>
     </form>
     <div v-if="error">{{ error }}</div>
-    <div v-else-if="!username || !password">Please enter a username and password</div>
     <div v-else>{{ userMessage }}</div>
   </div>
 
