@@ -11,7 +11,7 @@ export default async (request: Request) => {
     const connectionString = process.env.MONGODB_URI2;
     if (!connectionString) {
       console.error('MONGODB_URI environment variable is not set');
-    }
+    };
     client.value = new MongoClient(connectionString as string, {
       serverApi: {
         version: ServerApiVersion.v1,
@@ -24,7 +24,7 @@ export default async (request: Request) => {
     const database = client.value.db('james3k_prod');
     users.value = database.collection('users');
 
-    const { username, password } = await request.json()
+    const { username, password } = await request.json();
     const user = await users.value.findOne({ username });
 
     if (user) {
@@ -39,22 +39,22 @@ export default async (request: Request) => {
         });
       } else {
         console.error('Invalid email or password.');
-        return new Response(JSON.stringify({ success: false }), {
+        return new Response(JSON.stringify({ success: false, error: 'Invalid email or password.' }), {
           status: 401,
           headers: { 'Content-Type': 'application/json' },
         });
-      }
+      };
     } else {
       console.error('User not found.');
-      return new Response(JSON.stringify({ success: false }), {
+      return new Response(JSON.stringify({ success: false, error: 'User not found.' }), {
         status: 404,
         headers: { 'Content-Type': 'application/json' },
       });
-    }
+    };
   } catch (error) {
     console.error('Error verifying user:', error);
     return { success: false, error: error.message };
   } finally {
     await client.value?.close();
   }
-}
+};

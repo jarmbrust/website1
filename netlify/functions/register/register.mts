@@ -23,7 +23,7 @@ export default async (request: Request) => {
     });
     const database = client.value.db('james3k_prod');
     users.value = database.collection('users');
-    console.log('Connected to MongoDB (register)!', client);
+    console.log('Connected to MongoDB (register)!');
 
     await client.value.connect();
     const { username, password } = await request.json()

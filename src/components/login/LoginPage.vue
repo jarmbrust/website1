@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import { type ErrorData } from '@/types/types';
 
 const username = ref('');
 const password = ref('');
@@ -8,8 +9,8 @@ const error = ref<string | null>(null);
 const userMessage = ref('');
 
 const login = async () => {
+  error.value = null;
   try {
-    console.log('username.value: ', username.value);
     const response = await axios.post('/.netlify/functions/login', {
       username: username.value,
       password: password.value,
@@ -20,8 +21,19 @@ const login = async () => {
     } else {
       error.value = 'Invalid email or password, please try again.';
     }
-  } catch (err) {
-    error.value = `An error occurred ${username.value}. Please try again: "${err}"`;
+  } catch (err: unknown) {
+    const axiosError = err as AxiosError;
+    if (axiosError.response) {
+      const errorData = axiosError.response.data as ErrorData;
+      if (errorData && errorData?.error) {
+        // TODO: don't surface all error messages for security reasons.
+        error.value = errorData.error;
+      } else {
+        error.value = 'An error occurred. Please try again.';
+      }
+    } else {
+      error.value = 'An error occurred. Please try again.';
+    }
   }
 };
 </script>
