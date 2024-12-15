@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import IconStar from '@/components/icons/IconStar.vue';
+// import IconStar from '@/components/icons/IconStar.vue';
 </script>
 
 <template>
   <div>
     <h1>Resume</h1>
-    <IconStar class="star" />
+    <!-- <IconStar class="star" /> -->
   </div>
 </template>
 

@@ -22,13 +22,3 @@ const logout = () => {
     <p>{{ message }}</p>
   </div>
 </template>
-
-<style lang="scss" scoped>
-button {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 3px;
-  background-color: bisque;
-  color: black;
-}
-</style>

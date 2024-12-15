@@ -4,13 +4,13 @@
       <h1>Welcome to my website!</h1>
     </Transition>
     <Transition appear name="fade2" mode="out-in">
-      <p>This was created to serve as a gateway to all things James!</p>
+      <p>This site is a work in progress and will be updated relatively consistently as time permits.</p>
     </Transition>
     <Transition appear name="fade3" mode="out-in">
-      <p>Under construction. Stay tuned for future updates!</p>
-    </Transition>
-    <Transition appear name="fade4" mode="out-in">
-      <p>...And don't mind the transitions, they are a bit silly.</p>
+      <div>
+        <p>To see some of the pages you will need to login with the password I provided in my resume (if you ventured upon this site by means of the link printed in my resume).</p>
+        <p>If you came across this site via another means, feel free to contact me and I can help you out.</p>
+      </div>
     </Transition>
   </main>
 </template>
@@ -22,6 +22,7 @@
   opacity: 0;
   transform: translateY(-500px);
 }
+// not using this one for now
 .fade4-enter-from {
   opacity: 0;
   transform: translateX(-1000px);

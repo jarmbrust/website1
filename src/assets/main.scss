@@ -1,8 +1,10 @@
+@use './_variables.scss';
+
 body {
   min-height: 100vh;
   margin: 0 30px;
   color: #f8f8f8;
-  background: rgb(32, 37, 39);
+  background: variables.$background-color;
   line-height: 1.6;
   font-family:
     Inter,
@@ -21,4 +23,23 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  h1 {
+    font-size: 25px;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  button {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    background: #9ab5c8;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    margin: 5px 0;
+  }
 }
