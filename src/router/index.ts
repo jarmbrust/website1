@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
+import { useLoginStore } from '@/stores/loginStore';
 
 const routes = [
   {
@@ -34,6 +35,14 @@ const routes = [
       title: 'James Armbrust - Login',
     }
   },
+  {
+    path: '/logout',
+    component: () => import('@/components/login/LogoutPage.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'James Armbrust - Logout',
+    }
+  },
 ];
 
 const router = createRouter({
@@ -42,8 +51,13 @@ const router = createRouter({
 });
 
 router.beforeEach((to, _from, next) => {
+  const loginStore = useLoginStore();
   document.title = (to.meta.title as string) || 'James Armbrust';
-  next();
+  if (to.meta.requiresAuth && !loginStore.isLoggedIn()) {
+    next(false);
+  } else {
+    next();
+  }
 });
 
 export default router;

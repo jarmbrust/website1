@@ -55,6 +55,7 @@ const resetInputs = (resetAll = false) => {
 <template>
   <div class="login">
     <h1>Login</h1>
+    <p class="note">(you will be automatically logged out after one hour, or you can log out manually)</p>
     <form @submit.prevent="login">
       <div>
         <label for="username-login">Username: </label>
@@ -71,3 +72,11 @@ const resetInputs = (resetAll = false) => {
   </div>
 
 </template>
+
+<style lang="scss" scoped>
+.note {
+  font-style: italic;
+  font-size: 12px;
+  margin: 0 0 30px 0;
+}
+</style>

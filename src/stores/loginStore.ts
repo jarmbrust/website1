@@ -6,11 +6,20 @@ export const useLoginStore = defineStore('login', () => {
 
   const login = () => {
     loggedIn.value = true;
+    // Set a timeout to log the user out after one hour
+    // regardless of activity
+    setTimeout(() => {
+      logout();
+    }, 60 * 60 * 1000);
   };
 
   const logout = () => {
     loggedIn.value = false;
   };
 
-  return { loggedIn, login, logout };
+  const isLoggedIn = () => {
+    return loggedIn.value;
+  }
+
+  return { loggedIn, login, logout, isLoggedIn };
 })

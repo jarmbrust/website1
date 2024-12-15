@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import { useLoginStore } from '@/stores/loginStore';
+
+const loginStore = useLoginStore();
+
+const isLoggedIn = () => {
+  return loginStore.isLoggedIn();
+}
+
+
 </script>
 
 <template>
@@ -12,7 +21,8 @@ import { RouterLink } from 'vue-router';
       <RouterLink to="/blog">Blog</RouterLink>
       <RouterLink to="/resume">Resume</RouterLink>
       <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/login">Login</RouterLink>
+      <span v-if="!isLoggedIn()" class="login"><RouterLink to="/login">Login</RouterLink></span>
+      <span v-else class="logout"><RouterLink to="/logout">Logout</RouterLink></span>
     </div>
   </nav>
 </template>
