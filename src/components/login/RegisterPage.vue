@@ -9,6 +9,7 @@ const userMessage = ref('');
 
 // TODO: check if the username already exists and return an error if it does,
 // or handle that in mongodb...
+// TODO: consider moving this logic to the store
 const register = async () => {
   error.value = null;
   userMessage.value = '';

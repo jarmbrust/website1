@@ -1,6 +1,5 @@
 import bcrypt from 'bcrypt';
 import { Collection, MongoClient, ServerApiVersion } from 'mongodb';
-// import 'dotenv/config';
 import { ref } from 'vue';
 
 const saltRounds = 10; // Number of salt rounds for bcrypt

@@ -5,10 +5,8 @@ import { useLoginStore } from '@/stores/loginStore';
 const loginStore = useLoginStore();
 
 const isLoggedIn = () => {
-  return loginStore.isLoggedIn();
-}
-
-
+  return loginStore.isLoggedIn;
+};
 </script>
 
 <template>
@@ -28,7 +26,7 @@ const isLoggedIn = () => {
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/_variables.scss';
+@use '@/assets/_variables.scss';
 
 nav {
   font-size: 22px;

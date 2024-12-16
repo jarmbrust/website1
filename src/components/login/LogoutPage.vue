@@ -7,7 +7,7 @@ const message = ref('');
 
 const logout = () => {
   loginStore.logout();
-  if (!loginStore.isLoggedIn()) {
+  if (!loginStore.isLoggedIn) {
     message.value = 'You have been logged out.';
   }
 }

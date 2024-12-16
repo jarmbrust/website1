@@ -1,7 +1,6 @@
 import { ref } from 'vue';
 import bcrypt from 'bcrypt';
 import { Collection, MongoClient, ServerApiVersion } from 'mongodb';
-// import 'dotenv/config';
 
 const users = ref<Collection<Document> | null>(null);
 const client = ref<MongoClient | null>(null);
@@ -32,8 +31,9 @@ export default async (request: Request) => {
       const match = await bcrypt.compare(password, result?.password);
 
       if (match) {
+        const permission = result?.permissions;
         console.log('Login successful!');
-        return new Response(JSON.stringify({ success: true }), {
+        return new Response(JSON.stringify({ success: true, permission }), {
           status: 200,
           headers: { 'Content-Type': 'application/json' },
         });

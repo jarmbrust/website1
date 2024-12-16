@@ -10,19 +10,23 @@ const password = ref('');
 const error = ref<string | null>(null);
 const userMessage = ref('');
 
+// TODO: consider moving this logic to the store
 const login = async () => {
   error.value = null;
   userMessage.value = '';
   loginStore.logout();
   try {
-    const response = await axios.post('/.netlify/functions/login', {
+    const { data } = await axios.post('/.netlify/functions/login', {
       username: username.value,
       password: password.value,
     });
-    if (response.data.success) {
+    if (data.success) {
       console.log('Login successful!');
       userMessage.value = 'Login successful!';
       loginStore.login();
+      data.permission.forEach((perm: string) => {
+        loginStore.setPermission(perm)
+      });
       resetInputs(true);
     } else {
       userMessage.value = 'Invalid username or password';

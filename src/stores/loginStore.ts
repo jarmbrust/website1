@@ -1,25 +1,52 @@
-import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
-export const useLoginStore = defineStore('login', () => {
-  const loggedIn = ref(false);
+interface State {
+  loggedIn: boolean;
+  userPermissions: string[];
+};
 
-  const login = () => {
-    loggedIn.value = true;
-    // Set a timeout to log the user out after one hour
-    // regardless of activity
-    setTimeout(() => {
-      logout();
-    }, 60 * 60 * 1000);
-  };
-
-  const logout = () => {
-    loggedIn.value = false;
-  };
-
-  const isLoggedIn = () => {
-    return loggedIn.value;
-  }
-
-  return { loggedIn, login, logout, isLoggedIn };
-})
+export const useLoginStore = defineStore('login', {
+  state: (): State => ({
+    loggedIn: false,
+    userPermissions: [],
+  }),
+  actions: {
+    login() {
+      this.loggedIn = true;
+      this.setAutoLogout();
+    },
+    logout() {
+      this.removePermissions(true);
+      this.loggedIn = false;
+    },
+    setPermission(permission: string) {
+      if (!this.userPermissions.includes(permission)) {
+        this.userPermissions.push(permission);
+      }
+    },
+    removePermissions(all: boolean, permission?: string) {
+      if (all) {
+        this.userPermissions = [];
+      } else if (permission) {
+        this.userPermissions = this.userPermissions.filter((p) => p !== permission);
+      }
+    },
+     // log the user out after one hour regardless of activity
+    setAutoLogout() {
+      setTimeout(() => {
+        this.logout();
+      }, 60 * 60 * 1000);
+    },
+    hasPermission(permission: string): boolean {
+      return this.userPermissions.includes(permission);
+    },
+  },
+  getters: {
+    isLoggedIn(): boolean {
+      return this.loggedIn;
+    },
+    getPermissions(): string[] {
+      return this.userPermissions;
+    },
+  },
+});

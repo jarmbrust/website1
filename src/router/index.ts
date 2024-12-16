@@ -53,7 +53,7 @@ const router = createRouter({
 router.beforeEach((to, _from, next) => {
   const loginStore = useLoginStore();
   document.title = (to.meta.title as string) || 'James Armbrust';
-  if (to.meta.requiresAuth && !loginStore.isLoggedIn()) {
+  if (to.meta.requiresAuth && !loginStore.isLoggedIn) {
     next(false);
   } else {
     next();
