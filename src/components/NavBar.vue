@@ -62,11 +62,8 @@ nav {
     a:hover {
       color: #849faf;
     }
-    a:last-of-type {
-      padding: 0 0 0 18px;
-    }
     a {
-      padding: 0 18px;
+      padding: 0 12px;
       text-decoration: none;
       color: #f8f8f8;
     }

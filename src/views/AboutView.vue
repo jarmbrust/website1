@@ -3,13 +3,14 @@
     <div class="about-me">
       <div class="about-text">
         <h1>About Me</h1>
-        <p>My name is James, and I live in Colorado with my loving wife and our 2 dogs, 3 cats, and a small assortment of other critters.</p>
+        <p>My name is James, and I live in Colorado with my loving wife and our 2 dogs, 3 cats,
+          and a small assortment of other critters.</p>
         <p>My career is in software development, with a background in frontend, backend, and database procedures.
-          My current focus is mostly on the frontend. I have a Bachelor of Science in Computer Science from the University Iowa,
-          and a Bachelor of Arts in History from St. John's University.</p>
-        <p>Hobbies of mine include writing, sketching, pottery, TTRPGs, 4X computer games, and I enjoy watching
+          My current focus is mostly on the frontend. I have a Bachelor of Science in Computer Science
+          from the University Iowa, and a Bachelor of Arts in History from St. John's University.</p>
+        <p>Hobbies of mine include writing, sketching, pottery, TTRPGs, 4X and rpg computer games, and I enjoy watching
           (sometimes really bad) scifi and fantasy movies.
-          My readings include science fiction, fantasy, and occasional non-fiction history or science book.</p>
+          My readings include science fiction, fantasy, and non-fiction history or science/programming books.</p>
       </div>
       <div>
         <img class="pic-of-me" src="../assets/james_edit5.png" alt="me" />
@@ -30,12 +31,11 @@
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/_variables.scss';
+@use '@/assets/_variables.scss';
 
 .about {
   display: flex;
   flex-direction: column;
-  margin: 20px 40px;
   @media (min-width: variables.$device-width) {
     .about-me {
       display: flex;
@@ -61,22 +61,22 @@
     .mst3k {
       display: flex;
       .mst3k-text {
-        flex: 2;
         justify-content: right;
         margin: 20px 10px;
       }
       img.mst3k-image {
-        flex: 1;
         justify-content: left;
         height: 200px;
         width: 200px;
         margin: 20px 10px;
+        border-radius: 10px;
       }
     }
   }
   @media (max-width: variables.$device-width) {
     img.mst3k-image {
       height: 300px;
+      border-radius: 10px;
     }
   }
 }

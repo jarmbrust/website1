@@ -9,7 +9,9 @@ import SiteFooter from './components/SiteFooter.vue';
     <header>
       <NavBar />
     </header>
-    <RouterView />
+    <main class="margins">
+      <RouterView />
+    </main>
     <footer>
       <SiteFooter />
     </footer>
@@ -27,6 +29,9 @@ import SiteFooter from './components/SiteFooter.vue';
   header {
     line-height: 1.5;
     border-bottom:rgb(195, 201, 220) 1px solid;
+  }
+  main {
+    margin: variables.$content-margin;
   }
   footer {
     margin-top: auto;

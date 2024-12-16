@@ -56,7 +56,3 @@ const resetInputs = (resetAll = false) => {
     <div v-else>{{ userMessage }}</div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-
-</style>

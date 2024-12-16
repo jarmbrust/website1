@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Disabling the ability of users to register for now
-// import RegisterPage from './RegisterPage.vue';
-import LoginPage from './LoginPage.vue';
+// import RegisterPage from '@/components/login/RegisterPage.vue';
+import LoginPage from '@/components/login/LoginPage.vue';
 
 </script>
 
@@ -9,7 +9,7 @@ import LoginPage from './LoginPage.vue';
   <!-- <div class="register">
     <RegisterPage />
   </div> -->
-  <div class="login">
+  <div>
     <LoginPage />
   </div>
 </template>
