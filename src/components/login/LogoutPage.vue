@@ -10,7 +10,7 @@ const logout = () => {
   if (!loginStore.isLoggedIn) {
     message.value = 'You have been logged out.';
   }
-}
+};
 </script>
 
 <template>

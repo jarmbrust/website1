@@ -80,7 +80,7 @@ const resetInputs = (resetAll = false) => {
 <style lang="scss" scoped>
 .note {
   font-style: italic;
-  font-size: 12px;
+  font-size: 14px;
   margin: 0 0 30px 0;
 }
 </style>
