@@ -1,18 +1,24 @@
-# website1
+# Welcome to my personal website!
 
-This template should help get you started developing with Vue 3 in Vite.
+As of mid-December 2024, this is still very much a work in progress...
 
-## Recommended IDE Setup
+It is written in Vue 3, Typescript, Mongodb, and is hosted serverless on Netlify with nodejs.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+State management is through Pinia.
 
-## Type Support for `.vue` Imports in TS
+Unit tests will be added with vitest in the near future (as of this writing).
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-## Customize configuration
+If you have any questions, please let me know!
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+The url for the site is: 
+``` james3k.com ```
+
+Below is the generic setup, but the site will not work fully without connection URI to the db and running on: 
+
+```sh
+netlify dev
+```
 
 ## Project Setup
 
