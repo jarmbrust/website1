@@ -14,6 +14,19 @@ If you have any questions, please let me know!
 The url for the site is: 
 ``` james3k.com ```
 
+To reiterate, this is very much a work in progress.  Unfortunately when I started most of the work on this a little over a week ago, I had not set up a plan on what I wanted to fully implement, so there is some refactoring needed to make things a little more organized. 
+A few things I want to do next are (in no particular order):
+
+- [ ] format blog posts (might need a package).
+- [ ] refactor the login code to organize it better.
+- [ ] allow for the user to be able to refresh the page and still stay logged in.
+- [ ] remove all the "dead" packages I thought I needed at the time.
+- [ ] create a "portfolio" section.
+
+...and more as I think of it.
+
+--- 
+
 Below is the generic setup, but the site will not work fully without connection URI to the db and running on: 
 
 ```sh

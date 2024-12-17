@@ -43,7 +43,7 @@ onMounted(async () => {
         <div class="blog-divider"></div>
       </div>
     </div>
-    <div v-show="allBlogs.length ===0">
+    <div v-show="allBlogs.length === 0">
       <p>Loading...</p>
     </div>
   </div>
