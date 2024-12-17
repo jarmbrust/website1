@@ -1,13 +1,10 @@
 import { ref } from 'vue';
 import { Collection, MongoClient, ServerApiVersion } from 'mongodb';
-import bcrypt from 'bcrypt';
 
-const saltRounds = 10; // Number of salt rounds for bcrypt
-const users = ref<Collection<Document> | null>(null);
+const blogs = ref<Collection<Document> | null>(null);
 const client = ref<MongoClient | null>(null);
 
 export default async (request: Request) => {
-
   try {
     const connectionString = process.env.MONGODB_URI2;
     if (!connectionString) {
@@ -21,21 +18,19 @@ export default async (request: Request) => {
       }
     });
     const database = client.value.db('james3k_prod');
-    users.value = database.collection('users');
-    console.log('Connected to MongoDB (register)!');
+    blogs.value = database.collection('blogs');
 
     await client.value.connect();
-    const { username, password } = await request.json()
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-
+    const { blogId, title, body, currentDate } = await request.json();
     const data = {
-      "username": username,
-      "password": hashedPassword
+      'blogId': blogId,
+      'date': currentDate,
+      'title': title,
+      'body': body,
     };
 
-    const result = await client.value.db('james3k_prod').collection('users').insertOne(data);
-    console.log(`New user created with the following id: ${result.insertedId}`);
-
+    const result = await client.value.db('james3k_prod').collection('blogs').insertOne(data);
+    console.log(`New blog created with the following id: ${result.insertedId}`);
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
@@ -50,4 +45,3 @@ export default async (request: Request) => {
     await client.value?.close();
   }
 };
-

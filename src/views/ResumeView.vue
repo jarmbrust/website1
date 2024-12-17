@@ -16,7 +16,6 @@ const loginStore = useLoginStore();
         I can provide one to you.  You can contact me by email; which is "james" at the domain name.
       </p>
       <p>Click <RouterLink to="/login">here</RouterLink> to log in.</p>
-
     </div>
     <div v-else>
       <h1>Resume</h1>

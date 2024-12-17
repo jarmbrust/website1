@@ -10,7 +10,7 @@ const password = ref('');
 const error = ref<string | null>(null);
 const userMessage = ref('');
 
-// TODO: consider moving this logic to the store
+// TODO: consider moving this logic to the store like I did for blogs
 const login = async () => {
   error.value = null;
   userMessage.value = '';

@@ -1,6 +1,6 @@
 import { ref } from 'vue';
-import bcrypt from 'bcrypt';
 import { Collection, MongoClient, ServerApiVersion } from 'mongodb';
+import bcrypt from 'bcrypt';
 
 const users = ref<Collection<Document> | null>(null);
 const client = ref<MongoClient | null>(null);
