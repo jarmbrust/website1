@@ -17,12 +17,14 @@ The url for the site is:
 To reiterate, this is very much a work in progress.  Unfortunately when I started most of the work on this a little over a week ago, I had not set up a plan on what I wanted to fully implement, so there is some refactoring needed to make things a little more organized. 
 A few things I want to do next are (in no particular order):
 
+- [ ] tests!
 - [ ] format blog posts (might need a package).
 - [ ] refactor the login code to organize it better.
 - [ ] allow for the user to be able to refresh the page and still stay logged in.
 - [ ] remove all the "dead" packages I thought I needed at the time.
 - [ ] create a "portfolio" section.
-- [ ] unit tests!
+- [ ] scroll blog posts.
+- [ ] reroute user after login.
 
 ...and more as I think of it.
 
