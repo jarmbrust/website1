@@ -22,6 +22,7 @@ A few things I want to do next are (in no particular order):
 - [ ] allow for the user to be able to refresh the page and still stay logged in.
 - [ ] remove all the "dead" packages I thought I needed at the time.
 - [ ] create a "portfolio" section.
+- [ ] unit tests!
 
 ...and more as I think of it.
 
