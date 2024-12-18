@@ -76,7 +76,6 @@ onMounted(async () => {
 }
 .blog-post-fields {
   margin-top: 42px;
-  // display: flex;
   .error-message {
     color: red;
     font-weight: bold;
@@ -92,6 +91,7 @@ onMounted(async () => {
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px #999;
     margin: 10px 0;
+    width: 500px;
   }
 }
 </style>
