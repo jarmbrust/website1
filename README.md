@@ -24,6 +24,7 @@ A few things I want to do next are (in no particular order):
 - [ ] remove all the "dead" packages I thought I needed at the time.
 - [ ] create a "portfolio" section.
 - [ ] scroll blog posts.
+- [ ] route to homepage on bad link (will likely need to mess with Netlify settings again).
 
 ...and more as I think of it.
 
