@@ -82,16 +82,14 @@ onMounted(async () => {
     font-size: 22px;
   }
   textarea, input {
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    font-size: 18px;
     padding: 10px;
     max-width: 100%;
     line-height: 1.5;
     border-radius: 3px;
     border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px #999;
     margin: 10px 0;
-    width: 500px;
+    width: 100%;
   }
 }
 </style>
