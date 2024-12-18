@@ -38,7 +38,9 @@ onMounted(async () => {
   <div class="blogs">
     <div v-show="allBlogs.length > 0">
       <div v-for="blog in allBlogs" :key="blog.blogId">
-        <h2>{{ blog.title }}: <span class="blog-date">{{ blog.date }}</span></h2>
+        <h2><span class="blog-title">{{ blog.title }}: </span>
+          <span class="blog-date">{{ blog.date }}</span>
+        </h2>
         <p class="blog-body">{{ blog.body }}</p>
         <div class="blog-divider"></div>
       </div>
@@ -60,6 +62,10 @@ onMounted(async () => {
 <style lang="scss" scoped>
 .blogs {
   margin-bottom: 42px;
+  .blog-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
   .blog-date {
     font-size: 15px;
     font-style: italic;
