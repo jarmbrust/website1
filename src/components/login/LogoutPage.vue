@@ -15,7 +15,7 @@ const logout = () => {
 
 <template>
   <div>
-    <h1>Logout</h1>
+    <h2>Logout</h2>
     <p>Thanks for visiting my site!  There will be more soon, and if you have any suggestions
       on content you would like to see, please let me know.
     </p>

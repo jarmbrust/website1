@@ -50,9 +50,9 @@ onMounted(async () => {
   <div class="blog-post-fields">
     <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
     <form @submit.prevent="postNewBlog">
-      <p>Title: <input class="title" type="text" v-model="title" required /></p>
-      <p>Content: <textarea rows="5" cols="42" v-model="body" required /></p>
-      <button type="submit">Submit</button>
+      <div class="title">Title:</div> <input class="title" type="text" v-model="title" required />
+      <div class="content">Content:</div> <textarea rows="5" cols="42" v-model="body" required />
+      <div><button type="submit">Submit</button></div>
     </form>
   </div>
 </template>
@@ -76,12 +76,13 @@ onMounted(async () => {
 }
 .blog-post-fields {
   margin-top: 42px;
+  // display: flex;
   .error-message {
     color: red;
     font-weight: bold;
     font-size: 22px;
   }
-  textarea {
+  textarea, input {
     font-size: 0.8rem;
     letter-spacing: 1px;
     padding: 10px;
@@ -90,6 +91,7 @@ onMounted(async () => {
     border-radius: 3px;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px #999;
+    margin: 10px 0;
   }
 }
 </style>
