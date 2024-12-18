@@ -3,8 +3,10 @@ import { ref } from 'vue';
 import axios, { AxiosError } from 'axios';
 import { type ErrorData } from '@/types/types';
 import { useLoginStore } from '@/stores/loginStore';
+import { useRouter } from 'vue-router';
 
 const loginStore = useLoginStore();
+const router = useRouter();
 const username = ref('');
 const password = ref('');
 const error = ref<string | null>(null);
@@ -28,6 +30,9 @@ const login = async () => {
         loginStore.setPermission(perm)
       });
       resetInputs(true);
+      setTimeout(() => {
+        router.push({ path: '/' });
+      }, 1000);
     } else {
       userMessage.value = 'Invalid username or password';
     }
