@@ -1,14 +1,17 @@
 <template>
   <Transition appear name="fade1" mode="out-in">
-    <h1>Welcome to my website!</h1>
+    <h2>Welcome to my website</h2>
   </Transition>
   <Transition appear name="fade2" mode="out-in">
     <p>This site is a work in progress and will be updated relatively consistently as time permits.</p>
   </Transition>
   <Transition appear name="fade3" mode="out-in">
     <div>
-      <p>To see some of the pages you will need to login with the password I provided in my resume (if you ventured upon this site by means of the link printed in my resume).</p>
-      <p>If you came across this site via another means, feel free to contact me and I can help you out.</p>
+      <p>To see some of the pages you will need to login with the password I provided
+        either in my resume or in other correspondence.  Currently, the resume section is
+        not complete, but if you are here, chances are you have a copy of it already.  Of
+        course, if you do not have that password, please contact me and I can provide it!
+      </p>
     </div>
   </Transition>
 </template>

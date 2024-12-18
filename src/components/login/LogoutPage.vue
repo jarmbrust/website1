@@ -16,6 +16,9 @@ const logout = () => {
 <template>
   <div>
     <h1>Logout</h1>
+    <p>Thanks for visiting my site!  There will be more soon, and if you have any suggestions
+      on content you would like to see, please let me know.
+    </p>
     <form @submit.prevent="logout">
       <button type="submit">Logout</button>
     </form>
