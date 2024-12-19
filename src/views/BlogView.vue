@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BlogPage from '@/components/BlogPage.vue';
+import BlogPage from '@/components/blogs/BlogPage.vue';
 </script>
 
 <template>
