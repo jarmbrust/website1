@@ -13,7 +13,9 @@ import SiteFooter from './components/SiteFooter.vue';
       <RouterView />
     </main>
     <footer>
-      <SiteFooter />
+      <SiteFooter>
+        James Armbrust © 2024
+      </SiteFooter>
     </footer>
   </div>
 </template>

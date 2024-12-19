@@ -23,10 +23,10 @@ export default async (request: Request) => {
     await client.value.connect();
     const { blogId, title, body, currentDate } = await request.json();
     const data = {
-      'blogId': blogId,
-      'date': currentDate,
-      'title': title,
-      'body': body,
+      blogId,
+      date: currentDate,
+      title,
+      body,
     };
 
     const result = await client.value.db('james3k_prod').collection('blogs').insertOne(data);

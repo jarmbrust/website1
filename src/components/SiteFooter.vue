@@ -1,5 +1,11 @@
 <template>
   <div class="copyright">
-    <p>James Armbrust © 2024</p>
+    <slot />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.copyright {
+  padding-bottom: 5px;
+}
+</style>

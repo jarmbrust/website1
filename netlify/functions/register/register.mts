@@ -29,8 +29,8 @@ export default async (request: Request) => {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     const data = {
-      "username": username,
-      "password": hashedPassword
+      username,
+      password: hashedPassword
     };
 
     const result = await client.value.db('james3k_prod').collection('users').insertOne(data);

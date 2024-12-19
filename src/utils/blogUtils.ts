@@ -13,7 +13,7 @@ export const getMaxBlogId = (blogs: Blog[]) => {
       max = blog.blogId;
     }
   }
-  return max;
+  return max + 1;
 };
 
 export const postBlog = async (blogId: number, title: string, body: string, currentDate: string) => {

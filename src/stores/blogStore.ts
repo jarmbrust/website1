@@ -20,7 +20,7 @@ export const useBlogStore = defineStore('blog', {
   },
   getters: {
     getNewBlogId(): number {
-      return getMaxBlogId(this.blogs) + 1;
+      return getMaxBlogId(this.blogs);
     },
   },
 });

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-// import IconStar from '@/components/icons/IconStar.vue';
-// import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { useLoginStore } from '@/stores/loginStore';
 

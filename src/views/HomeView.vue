@@ -3,7 +3,7 @@
     <h2>Welcome to my website</h2>
   </Transition>
   <Transition appear name="fade2" mode="out-in">
-    <p>This site is a work in progress and will be updated relatively consistently as time permits.</p>
+    <p>This tiny site is a work in progress and will be updated relatively consistently as time permits.</p>
   </Transition>
   <Transition appear name="fade3" mode="out-in">
     <div>
