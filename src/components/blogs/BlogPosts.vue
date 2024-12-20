@@ -2,6 +2,8 @@
 import type { Blog } from '@/types/types';
 
 const props = defineProps<{ allBlogs: Blog[] }>();
+
+// TODO: set up pagination
 </script>
 
 <template>
@@ -25,21 +27,39 @@ const props = defineProps<{ allBlogs: Blog[] }>();
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/_variables.scss';
+
 .blogs {
   margin-bottom: 42px;
   .blog-title {
     font-size: 20px;
     font-weight: 600;
   }
-  .blog-date {
-    font-size: 15px;
-    font-style: italic;
-    font-weight: 400;
+  @media screen and (max-width: variables.$device-width) {
+    .blog-date {
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 5px;
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .blog-body {
+      font-size: 15px;
+      line-height: 1.5;
+    }
   }
-  .blog-body {
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 0 40px;
+  @media screen and (min-width: variables.$device-width) {
+    .blog-date {
+      font-size: 15px;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .blog-body {
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 0 40px;
+    }
   }
   .blog-divider {
     border-bottom: #999 1px solid;

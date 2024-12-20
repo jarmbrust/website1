@@ -21,6 +21,15 @@ onMounted(async () => {
 </script>
 
 <template>
-  <BlogPosts :all-blogs="allBlogs" />
+  <div class="blog-posts-container">
+    <BlogPosts :all-blogs="allBlogs" />
+  </div>
   <BlogCreate />
 </template>
+
+<style lang="scss" scoped>
+  .blog-posts-container {
+    height: 400px;
+    overflow-y: auto;
+  }
+</style>

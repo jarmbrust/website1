@@ -38,7 +38,6 @@ const postNewBlog = async () => {
 
 <style lang="scss" scoped>
 .blog-post-fields {
-  margin-top: 42px;
   .error-message {
     color: red;
     font-weight: bold;
@@ -46,13 +45,16 @@ const postNewBlog = async () => {
   }
   textarea, input {
     font-size: 18px;
+    font-family: inherit;
     padding: 10px;
     max-width: 100%;
-    line-height: 1.5;
     border-radius: 3px;
     border: 1px solid #ccc;
-    margin: 10px 0;
+    margin: 5px 0;
     width: 100%;
+  }
+  textarea {
+    height: 100px
   }
 }
 </style>
