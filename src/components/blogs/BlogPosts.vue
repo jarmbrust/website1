@@ -6,7 +6,7 @@ const props = defineProps<{ allBlogs: Blog[] }>();
 
 <template>
 <div class="blogs">
-  <div v-show="props.allBlogs.length > 0">
+  <div v-show="props.allBlogs?.length > 0">
     <div v-for="blog in props.allBlogs" :key="blog.blogId">
       <h2><span class="blog-title">{{ blog.title }}: </span>
         <span class="blog-date">{{ blog.date }}</span>
@@ -15,7 +15,10 @@ const props = defineProps<{ allBlogs: Blog[] }>();
       <div class="blog-divider"></div>
     </div>
   </div>
-  <div v-show="props.allBlogs.length === 0">
+  <div  v-if="!props.allBlogs">
+    <p>No results returned.</p>
+  </div>
+  <div v-else-if="props.allBlogs.length === 0">
     <p>Loading...</p>
   </div>
 </div>

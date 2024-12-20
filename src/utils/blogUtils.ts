@@ -2,8 +2,25 @@ import axios from 'axios';
 import { type Blog } from '@/types/types';
 
 export const getBlogs = async () => {
-  const response = await axios.get('/.netlify/functions/getBlogs');
-  return response.data.blogs;
+  try {
+    const response = await axios.get('/.netlify/functions/getBlogs');
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: response.data.blogs,
+    };
+  } catch (err) {
+    console.error(err);
+    return {
+      statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: undefined,
+    };
+  }
 };
 
 export const getMaxBlogId = (blogs: Blog[]) => {

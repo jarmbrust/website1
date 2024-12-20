@@ -8,7 +8,7 @@ export default async () => {
   try {
     const connectionString = process.env.MONGODB_URI2;
     if (!connectionString) {
-      console.error('MONGODB_URI environment variable is not set');
+      throw new Error('MONGODB_URI environment variable is not set');
     };
     client.value = new MongoClient(connectionString as string, {
       serverApi: {

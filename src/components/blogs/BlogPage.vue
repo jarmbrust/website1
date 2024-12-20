@@ -9,10 +9,14 @@ const blogStore = useBlogStore();
 const allBlogs = ref<Blog[]>([]);
 
 onMounted(async () => {
-  if (!blogStore.blogs.length) {
+  if (!blogStore.blogs?.length) {
     await blogStore.populateBlogs();
   }
-  allBlogs.value = blogStore.blogs;
+  allBlogs.value =
+    !blogStore.blogs?.length
+    ? []
+    : blogStore.blogs;
+  allBlogs.value.sort((a, b) => b.blogId - a.blogId);
 });
 </script>
 
