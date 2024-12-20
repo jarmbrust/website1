@@ -29,7 +29,7 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
   .blog-posts-container {
-    height: 400px;
+    height: 50vh;
     overflow-y: auto;
   }
 </style>
