@@ -18,12 +18,12 @@ To reiterate, this is very much a work in progress.  Unfortunately when I starte
 A few things I want to do next are (in no particular order):
 
 - [ ] tests!
-- [ ] format blog posts (might need a package).
+- [ ] format blog post input (might need a package).
 - [ ] refactor the login code to organize it better.
 - [ ] allow for the user to be able to refresh the page and still stay logged in.
 - [ ] remove all the "dead" packages I thought I needed at the time.
 - [ ] create a "portfolio" section.
-- [ ] scroll blog posts.
+- [x] scroll blog posts.
 - [ ] route to homepage on bad link (will likely need to mess with Netlify settings again).
 
 ...and more as I think of it.
