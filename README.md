@@ -20,11 +20,12 @@ A few things I want to do next are (in no particular order):
 - [ ] tests!
 - [ ] format blog post input (might need a package).
 - [ ] refactor the login code to organize it better.
-- [ ] allow for the user to be able to refresh the page and still stay logged in.
+- [x] allow for the user to be able to refresh the page and still stay logged in.
 - [ ] remove all the "dead" packages I thought I needed at the time.
 - [ ] create a "portfolio" section.
 - [x] scroll blog posts.
 - [ ] route to homepage on bad link (will likely need to mess with Netlify settings again).
+- [ ] fix error where the resume page does not refresh automatically on login.
 
 ...and more as I think of it.
 

@@ -1,58 +1,41 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import axios, { AxiosError } from 'axios';
-import { type ErrorData } from '@/types/types';
-import { useLoginStore } from '@/stores/loginStore';
 import { useRouter } from 'vue-router';
+import { jwtDecode } from 'jwt-decode';
+import { useLoginStore } from '@/stores/loginStore';
+import { useUserStore } from '@/stores/userStore';
+import { type LoginResponse } from '@/types/types';
 
 const loginStore = useLoginStore();
+const userStore = useUserStore();
 const router = useRouter();
 const username = ref('');
 const password = ref('');
 const error = ref<string | null>(null);
 const userMessage = ref('');
 
-// TODO: consider moving this logic to the store like I did for blogs
 const login = async () => {
   error.value = null;
   userMessage.value = '';
   loginStore.logout();
-  try {
-    const { data } = await axios.post('/.netlify/functions/login', {
-      username: username.value,
-      password: password.value,
-    });
-    if (data.success) {
-      console.log('Login successful!');
-      userMessage.value = 'Login successful!';
-      loginStore.login();
-      data.permission.forEach((perm: string) => {
-        loginStore.setPermission(perm)
-      });
-      resetInputs(true);
-      setTimeout(() => {
-        router.push({ path: '/' });
-      }, 1000);
-    } else {
-      userMessage.value = 'Invalid username or password';
-    }
-  } catch (err: unknown) {
-    const axiosError = err as AxiosError;
-    if (axiosError.response) {
-      const errorData = axiosError.response.data as ErrorData;
-      if (errorData && errorData?.error) {
-        // TODO: don't surface all error messages...
-        error.value = errorData.error;
-        resetInputs();
-      } else {
-        error.value = 'An error occurred. Please try again.';
-      }
-    } else {
-      error.value = 'An error occurred. Please try again.';
-    }
-  }
+
+  const response: LoginResponse = await loginStore.login(username.value, password.value);
+  resetInputs(!response.error);
+  if (response.token && !response.error) {
+    error.value = response.error;
+    userMessage.value = response.message;
+    userStore.verifyToken();
+    userStore.userPermissions = response.token && userStore.isAuthenticated
+      ? jwtDecode<{ permissions: string[] }>(response.token)?.permissions
+      : [];
+    setTimeout(() => {
+      router.push({ path: '/' });
+    }, 1000);
+  };
 };
 
+// If there is an error, reset the password, but keep the username so the user can try again.
+// On a successful login, reset all inputs.
 const resetInputs = (resetAll = false) => {
   if (resetAll) {
     username.value = '';

@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useLoginStore } from '@/stores/loginStore';
 import { useBlogStore } from '@/stores/blogStore';
 import { currentDate } from '@/utils/blogUtils';
 
-const loginStore = useLoginStore();
 const blogStore = useBlogStore();
 const title = ref('');
 const body = ref('');
@@ -13,10 +11,6 @@ const todaysDate = ref('');
 const errorMessage = ref<string | null>(null);
 
 const postNewBlog = async () => {
-  if (!loginStore.isLoggedIn || !loginStore.hasPermission('me')) {
-    errorMessage.value = 'You do not have permission to post a new blog.';
-    return;
-  }
   todaysDate.value = currentDate();
   await blogStore.postNewBlog(title.value, body.value, todaysDate.value);
   title.value = '';

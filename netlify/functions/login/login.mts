@@ -1,5 +1,6 @@
 import { ref } from 'vue';
 import { Collection, MongoClient, ServerApiVersion } from 'mongodb';
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 const users = ref<Collection<Document> | null>(null);
@@ -11,6 +12,12 @@ export default async (request: Request) => {
     if (!connectionString) {
       console.error('MONGODB_URI environment variable is not set');
     };
+    if (request.method !== 'POST') {
+      return {
+        statusCode: 405,
+        body: 'Method Not Allowed',
+      };
+    };
     client.value = new MongoClient(connectionString as string, {
       serverApi: {
         version: ServerApiVersion.v1,
@@ -19,7 +26,6 @@ export default async (request: Request) => {
       }
     });
 
-    await client.value.connect();
     const database = client.value.db('james3k_prod');
     users.value = database.collection('users');
 
@@ -29,31 +35,41 @@ export default async (request: Request) => {
     if (user) {
       const result = await client.value.db('james3k_prod').collection('users').findOne({ username });
       const match = await bcrypt.compare(password, result?.password);
-
       if (match) {
-        const permission = result?.permissions;
+        const permissions: string[] = result?.permissions;
         console.log('Login successful!');
-        return new Response(JSON.stringify({ success: true, permission }), {
+        if (!process.env.JWT_SECRET) {
+          console.error('JWT_SECRET environment variable is not set');
+          return new Response(JSON.stringify({ success: false, error: 'Internal Server Error' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+          });
+        }
+        const token = jwt.sign({ success: true, permissions }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        return new Response(JSON.stringify({ message: 'Cookie set successfully' }), {
           status: 200,
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Set-Cookie': `userPermissionsCookie=${token}; Max-Age=3600; Secure; SameSite=None; Path=/`,
+          }
         });
       } else {
-        console.error('Invalid email or password.');
-        return new Response(JSON.stringify({ success: false, error: 'Invalid email or password.' }), {
+        return new Response(JSON.stringify({ success: false, error: 'Invalid username or password.' }), {
           status: 401,
           headers: { 'Content-Type': 'application/json' },
         });
       };
     } else {
-      console.error('User not found.');
-      return new Response(JSON.stringify({ success: false, error: 'User not found.' }), {
-        status: 404,
+      return new Response(JSON.stringify({ success: false, error: 'Invalid username or password.' }), {
+        status: 401,
         headers: { 'Content-Type': 'application/json' },
       });
-    };
-  } catch (error) {
-    console.error('Error verifying user:', error);
-    return { success: false, error: error.message };
+    }
+  } catch (err: unknown) {
+    console.error(err);
+    return new Response(JSON.stringify({ success: false, error: 'An error occurred.' }), {
+      status: 404,
+      headers: { 'Content-Type': 'application/json' },
+    });
   } finally {
     await client.value?.close();
   }
