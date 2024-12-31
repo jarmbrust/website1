@@ -16,8 +16,3 @@
   port = 8888
   publish = "dist"
 
-[headers]
-  [[headers]]
-    for = "*"
-    [headers.values]
-      Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self';"

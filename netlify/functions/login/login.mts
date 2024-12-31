@@ -49,8 +49,10 @@ export default async (request: Request) => {
         return new Response(JSON.stringify({ message: 'Cookie set successfully' }), {
           status: 200,
           headers: {
-            'Set-Cookie': `userPermissionsCookie=${token}; Max-Age=3600; Secure; HttpOnly; SameSite=Lax; Path=/ Domain=.james3k.com`,
-          }
+            'Set-Cookie': `userPermissionsCookie=${token}; Max-Age=3600; Secure; HttpOnly; SameSite=Lax; Path=/ Domain=james3k.com`,
+            'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self';",
+            'Content-Type': 'application/json',
+          },
         });
       } else {
         return new Response(JSON.stringify({ success: false, error: 'Invalid username or password.' }), {
