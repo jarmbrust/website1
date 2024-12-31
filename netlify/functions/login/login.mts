@@ -50,7 +50,7 @@ export default async (request: Request) => {
           status: 200,
           headers: {
             'Set-Cookie': `userPermissionsCookie=${token}; Max-Age=3600; Path=/; Secure; SameSite=Lax; Domain=james3k.com`,//HttpOnly;
-            // 'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self';",
+            'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self';",
             'Content-Type': 'application/json',
           },
         });
