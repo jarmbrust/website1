@@ -19,15 +19,16 @@ export const useBlogStore = defineStore('blog', {
       this.blogs = (await getBlogs()).body || null;
     },
     async postNewBlog(title: string, body: string, currentDate: string) {
-      if (!loginStore.isLoggedIn || !loginStore.hasPermission('me')) {
+      if (!this.getNewBlogId) {
+        errorMessage.value = 'An error occurred creating a new blog.';
+        return;
+      } else if (loginStore.isLoggedIn && loginStore.hasPermission('me')) {
+        postBlog(this.getNewBlogId, title, body, currentDate);
+        return;
+      } else {
         errorMessage.value = 'You do not have permission to post a new blog.';
         return;
       }
-      if (!this.getNewBlogId) {
-        // TODO: make an error message for this.
-        return;
-      }
-      postBlog(this.getNewBlogId, title, body, currentDate);
     },
   },
   getters: {
