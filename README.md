@@ -1,12 +1,12 @@
 # Welcome to my personal website!
 
-As of mid-December 2024, this is still very much a work in progress...
+This is still very much a work in progress...
 
 It is written in Vue 3, Typescript, Mongodb, and is hosted serverless on Netlify with nodejs.
 
 State management is through Pinia.
 
-Unit tests will be added with vitest in the near future (as of this writing).
+Unit and component tests will be added with vitest as well.
 
 
 If you have any questions, please let me know!
@@ -14,18 +14,17 @@ If you have any questions, please let me know!
 The url for the site is: 
 ``` james3k.com ```
 
-To reiterate, this is very much a work in progress.  Unfortunately when I started most of the work on this a little over a week ago, I had not set up a plan on what I wanted to fully implement, so there is some refactoring needed to make things a little more organized. 
-A few things I want to do next are (in no particular order):
+To reiterate, this is very much a work in progress.  There are a couple of bugs and a few things I want
+to fix-up and implement.
+Some of them are (in no particular order):
 
 - [ ] tests!
 - [ ] format blog post input (might need a package).
-- [ ] refactor the login code to organize it better.
 - [x] allow for the user to be able to refresh the page and still stay logged in.
-- [ ] remove all the "dead" packages I thought I needed at the time.
+- [ ] remove the "dead" packages I thought I needed at the time.
 - [ ] create a "portfolio" section.
 - [x] scroll blog posts.
-- [ ] route to homepage on bad link (will likely need to mess with Netlify settings again).
-- [ ] fix error where the resume page does not refresh automatically on login.
+- [ ] route to homepage on bad link.
 
 ...and more as I think of it.
 

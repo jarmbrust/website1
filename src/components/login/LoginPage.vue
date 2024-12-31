@@ -47,7 +47,10 @@ const resetInputs = (resetAll = false) => {
 <template>
   <div class="login">
     <h1>Login</h1>
-    <p class="note">(you will be automatically logged out after one hour, or you can log out manually)</p>
+    <p class="note">Some pages require that you are logged in to access, at least at the lowest permission level.
+      The login process requires a cookie (which is only use for this purpose and will expire in 1 hour).
+      If you have forgotten your password, please contact me.</p>
+    <p class="note">You will be redirected to the home page after a successful login.</p>
     <form @submit.prevent="login">
       <div>
         <label for="username-login">Username: </label>

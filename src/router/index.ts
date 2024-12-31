@@ -18,6 +18,7 @@ const routes = [
     path: '/resume',
     component: () => import('@/views/ResumeView.vue'),
     meta: {
+      requiresLogin: true,
       title: 'James Armbrust - Resume',
     }
   },
@@ -39,7 +40,7 @@ const routes = [
     path: '/logout',
     component: () => import('@/components/login/LogoutPage.vue'),
     meta: {
-      requiresAuth: true,
+      requiresLogin: true,
       title: 'James Armbrust - Logout',
     }
   },
@@ -53,8 +54,8 @@ const router = createRouter({
 router.beforeEach((to, _from, next) => {
   const loginStore = useLoginStore();
   document.title = (to.meta.title as string) || 'James Armbrust';
-  if (to.meta.requiresAuth && !loginStore.isLoggedIn) {
-    next(false);
+  if (to.meta.requiresLogin && !loginStore.isLoggedIn) {
+    next('/login');
   } else {
     next();
   }

@@ -8,14 +8,16 @@ import router from '@/router'
 import { useLoginStore } from '@/stores/loginStore'
 import { useUserStore } from '@/stores/userStore'
 
-const app = createApp(App)
+const app = createApp(App);
+const pinia = createPinia();
 
-app.use(createPinia())
-app.use(router)
+app.use(pinia);
+app.use(router);
 
-const loginStore = useLoginStore()
-const userStore = useUserStore()
+const loginStore = useLoginStore();
+const userStore = useUserStore();
+
 userStore.verifyToken();
-loginStore.init()
+loginStore.init();
 
-app.mount('#app')
+app.mount('#app');
