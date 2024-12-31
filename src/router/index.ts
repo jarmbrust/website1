@@ -5,13 +5,20 @@ import { useLoginStore } from '@/stores/loginStore';
 const routes = [
   {
     path: '/',
-    component: HomeView
+    component: HomeView,
+    meta: {
+      title: 'James Armbrust',
+      description: 'This is the home page.',
+      keywords: 'home page, landing page, James Armbrust home page',
+    }
   },
   {
     path: '/blog',
     component: () => import('@/views/BlogView.vue'),
     meta: {
       title: 'James Armbrust - Blog',
+      description: 'This is a blog page.',
+      keywords: 'blog, blogs',
     }
   },
   {
@@ -20,6 +27,8 @@ const routes = [
     meta: {
       requiresLogin: true,
       title: 'James Armbrust - Resume',
+      description: 'This is a resume page.',
+      keywords: 'resume',
     }
   },
   {
@@ -27,6 +36,8 @@ const routes = [
     component: () => import('@/views/AboutView.vue'),
     meta: {
       title: 'James Armbrust - About',
+      description: 'This my about page.',
+      keywords: 'about me, about, personal information',
     }
   },
   {
@@ -34,6 +45,8 @@ const routes = [
     component: () => import('@/views/UserView.vue'),
     meta: {
       title: 'James Armbrust - Login',
+      description: 'This is a login page.',
+      keywords: 'login',
     }
   },
   {
@@ -42,6 +55,8 @@ const routes = [
     meta: {
       requiresLogin: true,
       title: 'James Armbrust - Logout',
+      description: 'This is a logout page.',
+      keywords: 'logout',
     }
   },
 ];
