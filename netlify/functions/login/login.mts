@@ -49,7 +49,7 @@ export default async (request: Request) => {
         return new Response(JSON.stringify({ message: 'Cookie set successfully' }), {
           status: 200,
           headers: {
-            'Set-Cookie': `userPermissionsCookie=${token}; Max-Age=3600; Path=/; Secure; SameSite=Lax; Domain=james3k.com`,//HttpOnly;
+            'Set-Cookie': `userPermissionsCookie=${token}; Max-Age=3600; Path=/; Secure; SameSite=Lax; Domain=james3k.com`,
             'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self';",
             'Content-Type': 'application/json',
           },
