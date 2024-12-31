@@ -37,8 +37,10 @@ export const useLoginStore = defineStore('login', {
       this.userPermissions = [];
       this.token = '';
       this.loggedIn = false;
-      Cookies.remove('userPermissionsCookie');
-      console.log('removed cookie');
+      Cookies.remove('userPermissionsCookie', {
+        domain: 'james3k.com',
+        path: '/',
+      });
       delete axios.defaults.headers.common['Authorization'];
     },
     setPermission(permission: string) {
