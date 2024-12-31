@@ -19,7 +19,7 @@ export const useBlogStore = defineStore('blog', {
       this.blogs = (await getBlogs()).body || null;
     },
     async postNewBlog(title: string, body: string, currentDate: string) {
-      if (!loginStore.isLoggedIn || !loginStore.hasPermission('me')) {
+      if (!loginStore.isLoggedIn && !loginStore.hasPermission('me')) {
         errorMessage.value = 'You do not have permission to post a new blog.';
         return;
       }
