@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { jwtDecode } from 'jwt-decode';
 import { useLoginStore } from '@/stores/loginStore';
 import { useUserStore } from '@/stores/userStore';
 import { type LoginResponse } from '@/types/types';
+import { jwtDecode } from 'jwt-decode';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const loginStore = useLoginStore();
 const userStore = useUserStore();
@@ -21,8 +21,7 @@ const login = async () => {
 
   const response: LoginResponse = await loginStore.login(username.value, password.value);
   resetInputs(!response.error);
-  if (response.token && !response.error) {
-    error.value = response.error;
+  if (!response.error) {
     userMessage.value = response.message;
     userStore.verifyToken();
     userStore.userPermissions = response.token && userStore.isAuthenticated
@@ -30,8 +29,10 @@ const login = async () => {
       : [];
     setTimeout(() => {
       router.push({ path: '/' });
-    }, 1000);
-  };
+    }, 1500);
+  } else if (response.error) {
+    error.value = response.message;
+  }
 };
 
 // If there is an error, reset the password, but keep the username so the user can try again.
@@ -51,27 +52,59 @@ const resetInputs = (resetAll = false) => {
       The login process requires a cookie (which is only use for this purpose and will expire in 1 hour).
       If you have forgotten your password, please contact me.</p>
     <p class="note">You will be redirected to the home page after a successful login.</p>
-    <form @submit.prevent="login">
-      <div>
+    <form @submit.prevent="login" class="login-form">
+      <div class="error" v-if="error">{{ error }}</div>
+      <div class="success" v-else>{{ userMessage }}</div>
+      <div class="username">
         <label for="username-login">Username: </label>
         <input id="username-login" type="text" v-model="username" required />
       </div>
-      <div>
+      <div class="password">
         <label for="pw-login">Password: </label>
         <input id="pw-login" type="password" v-model="password" required />
       </div>
       <button type="submit">Login</button>
     </form>
-    <div v-if="error">{{ error }}</div>
-    <div v-else>{{ userMessage }}</div>
   </div>
 
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/_variables.scss';
+
 .note {
   font-style: italic;
   font-size: 14px;
-  margin: 0 0 30px 0;
+  margin-bottom: 30px;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+  padding: 20px;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  .error, .success {
+    font-size: 18px;
+    font-style: italic;
+  }
+  .error {
+    color: red;
+  }
+  .username, .password {
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: variables.$device-width) {
+      flex-direction: column;
+    }
+    @media screen and (min-width: variables.$device-width) {
+      input {
+        max-width: 250px;
+        width: 100%;
+      }
+    }
+  }
 }
 </style>

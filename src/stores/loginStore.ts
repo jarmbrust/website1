@@ -1,8 +1,8 @@
-import { defineStore } from 'pinia';
-import axios, { AxiosError, isAxiosError } from 'axios';
+import { type LoginResponse } from '@/types/types';
+import axios, { AxiosError } from 'axios';
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
-import { type LoginResponse } from '@/types/types';
+import { defineStore } from 'pinia';
 
 interface State {
   userPermissions: string[];
@@ -23,14 +23,13 @@ export const useLoginStore = defineStore('login', {
         this.token = this.getTokenFromCookie;
         axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`;
         this.loggedIn = true;
-        console.log('Login successful!');
-        this.token = this.getTokenFromCookie;
-        return isAxiosError(response)
-        ? { error: (response as AxiosError).message, message: 'Invalid username or password.', token: this.token  }
-        : { error: '', message: 'Login successful!', token: this.token };
+        return { error: '', message: response.data.message, token: this.token };
       } catch (error: unknown) {
         console.error('Error logging in:', error);
-        return { error: (error as AxiosError).message, message: 'Error Logging In.', token: this.token }
+        const message = error instanceof AxiosError && error.response
+          ? error.response?.data.error
+          : 'An error occurred logging in.';
+        return { error: (error as AxiosError).message, message: message, token: this.token }
       }
     },
     logout() {
@@ -80,7 +79,7 @@ export const useLoginStore = defineStore('login', {
       }
       return this.userPermissions;
     },
-    getTokenFromCookie() {
+    getTokenFromCookie(): string | undefined {
       return Cookies.get('userPermissionsCookie');
     }
   },

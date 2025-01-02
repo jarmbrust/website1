@@ -1,7 +1,7 @@
-import { ref } from 'vue';
-import { Collection, MongoClient, ServerApiVersion } from 'mongodb';
-import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import { Collection, MongoClient, ServerApiVersion } from 'mongodb';
+import { ref } from 'vue';
 
 const users = ref<Collection<Document> | null>(null);
 const client = ref<MongoClient | null>(null);
@@ -46,7 +46,7 @@ export default async (request: Request) => {
           });
         }
         const token = jwt.sign({ success: true, permissions }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        return new Response(JSON.stringify({ message: 'Cookie set successfully' }), {
+        return new Response(JSON.stringify({ message: 'Login successful!', success: true, token }), {
           status: 200,
           headers: {
             'Set-Cookie': `userPermissionsCookie=${token}; Max-Age=3600; Path=/; Secure; SameSite=Lax; Domain=james3k.com`,

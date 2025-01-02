@@ -13,7 +13,7 @@ export const useBlogStore = defineStore('blog', {
     blogs: [],
   }),
   actions: {
-    async populateBlogs() {
+    async populateBlogs(): Promise<void> {
       this.blogs = (await getBlogs()).body || null;
     },
     async postNewBlog(title: string, body: string, currentDate: string): Promise<string | null> {
