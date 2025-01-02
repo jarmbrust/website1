@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useBlogStore } from '@/stores/blogStore';
 import { currentDate } from '@/utils/blogUtils';
+import { ref } from 'vue';
 
 const blogStore = useBlogStore();
 const title = ref('');
@@ -11,11 +11,15 @@ const todaysDate = ref('');
 const errorMessage = ref<string | null>(null);
 
 const postNewBlog = async () => {
-  todaysDate.value = currentDate();
-  await blogStore.postNewBlog(title.value, body.value, todaysDate.value);
-  title.value = '';
-  body.value = '';
-  todaysDate.value = '';
+  if (title.value && body.value) {
+    todaysDate.value = currentDate();
+    errorMessage.value = await blogStore.postNewBlog(title.value, body.value, todaysDate.value);
+    title.value = '';
+    body.value = '';
+    todaysDate.value = '';
+  } else {
+    errorMessage.value = 'Please fill out all fields.';
+  }
 };
 </script>
 
@@ -40,7 +44,6 @@ const postNewBlog = async () => {
   textarea, input {
     font-size: 18px;
     font-family: inherit;
-    padding: 10px;
     max-width: 100%;
     border-radius: 3px;
     border: 1px solid #ccc;

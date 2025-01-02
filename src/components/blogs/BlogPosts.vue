@@ -3,7 +3,7 @@ import type { Blog } from '@/types/types';
 
 const props = defineProps<{ allBlogs: Blog[] }>();
 
-// TODO: set up pagination
+// TODO: set up pagination and hide the input fields if not logged in.
 </script>
 
 <template>

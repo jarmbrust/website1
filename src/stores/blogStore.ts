@@ -1,14 +1,12 @@
-import { ref } from 'vue';
-import { defineStore } from 'pinia';
-import { getBlogs, getMaxBlogId, postBlog } from '@/utils/blogUtils';
-import type { Blog } from '@/types/types';
 import { useLoginStore } from '@/stores/loginStore';
+import type { Blog } from '@/types/types';
+import { getBlogs, getMaxBlogId, postBlog } from '@/utils/blogUtils';
+import { defineStore } from 'pinia';
 
 const loginStore = useLoginStore();
 interface State {
   blogs?: Blog[];
 };
-const errorMessage = ref<string | null>(null);
 
 export const useBlogStore = defineStore('blog', {
   state: (): State => ({
@@ -18,14 +16,16 @@ export const useBlogStore = defineStore('blog', {
     async populateBlogs() {
       this.blogs = (await getBlogs()).body || null;
     },
-    async postNewBlog(title: string, body: string, currentDate: string) {
+    async postNewBlog(title: string, body: string, currentDate: string): Promise<string | null> {
+      let errorMessage: string | null =  null;
       if (!this.getNewBlogId) {
-        errorMessage.value = 'An error occurred creating a new blog.';
+        errorMessage = 'An error occurred creating a new blog.';
       } else if (loginStore.isLoggedIn && loginStore.hasPermission('me')) {
-        postBlog(this.getNewBlogId, title, body, currentDate);
+        await postBlog(this.getNewBlogId, title, body, currentDate);
       } else {
-        errorMessage.value = 'You do not have permission to post a new blog.';
+        errorMessage = 'You do not have permission to post a new blog.';
       }
+      return errorMessage;
     },
   },
   getters: {
