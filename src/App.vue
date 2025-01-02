@@ -14,7 +14,7 @@ import SiteFooter from './components/SiteFooter.vue';
     </main>
     <footer>
       <SiteFooter>
-        James Armbrust © 2024
+        James Armbrust © 2025
       </SiteFooter>
     </footer>
   </div>
