@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useBlogStore } from '@/stores/blogStore';
-import BlogPosts from '@/components/blogs/BlogPosts.vue';
 import BlogCreate from '@/components/blogs/BlogCreate.vue';
+import BlogPosts from '@/components/blogs/BlogPosts.vue';
+import { useBlogStore } from '@/stores/blogStore';
 import { type Blog } from '@/types/types';
+import { onMounted, ref } from 'vue';
 
 const blogStore = useBlogStore();
 const allBlogs = ref<Blog[]>([]);
@@ -24,12 +24,18 @@ onMounted(async () => {
   <div class="blog-posts-container">
     <BlogPosts :all-blogs="allBlogs" />
   </div>
-  <BlogCreate />
+  <div class="blog-create-container">
+    <BlogCreate />
+  </div>
 </template>
 
 <style lang="scss" scoped>
   .blog-posts-container {
     height: 50vh;
     overflow-y: auto;
+  }
+  .blog-create-container {
+    padding: 0 35px;
+    margin-top: 5px;
   }
 </style>
