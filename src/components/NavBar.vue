@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
 import { useLoginStore } from '@/stores/loginStore';
+import { RouterLink } from 'vue-router';
 
 const loginStore = useLoginStore();
 
@@ -34,36 +34,70 @@ nav {
   min-height: 45px;
   display: flex;
   justify-content: space-between;
+  @media (min-width: variables.$device-width) {
+    .my-name-and-pic {
+      font-weight: 700;
+      font-size: 30px;
+      display: flex;
+      a {
+        text-decoration: none;
+        color: #f8f8f8;
+      }
+      .pic-of-me {
+        height: 50px;
+        width: 50px;
+      }
+      .my-name {
+        padding: 0 10px;
+      }
+    }
+    .routes {
+      a.router-link-exact-active {
+        color: #9cb6c9;
+      }
+      a:hover {
+        color: #849faf;
+      }
+      a {
+        padding: 0 12px;
+        text-decoration: none;
+        color: #f8f8f8;
+      }
+    }
+  }
   @media (max-width: variables.$device-width) {
     flex-direction: column;
-  }
-  .my-name-and-pic {
-    font-weight: 700;
-    font-size: 30px;
-    display: flex;
-    a {
-      text-decoration: none;
-      color: #f8f8f8;
+    .my-name-and-pic {
+      font-weight: 700;
+      font-size: 25px;
+      display: flex;
+      justify-content: center;
+      a {
+        text-decoration: none;
+        color: #f8f8f8;
+      }
+      .pic-of-me {
+        display: none;
+      }
+      .my-name {
+        padding: 0 10px;
+      }
     }
-    .pic-of-me {
-      height: 50px;
-      width: 50px;
-    }
-    .my-name {
-      padding: 0 10px;
-    }
-  }
-  .routes {
-    a.router-link-exact-active {
-      color: #9cb6c9;
-    }
-    a:hover {
-      color: #849faf;
-    }
-    a {
-      padding: 0 12px;
-      text-decoration: none;
-      color: #f8f8f8;
+    .routes {
+      display: flex;
+      justify-content: center;
+      font-size: 18px;
+      a.router-link-exact-active {
+        color: #9cb6c9;
+      }
+      a:hover {
+        color: #849faf;
+      }
+      a, .login, .logout {
+        padding: 10px 12px 0 12px;
+        text-decoration: none;
+        color: #f8f8f8;
+      }
     }
   }
 }
