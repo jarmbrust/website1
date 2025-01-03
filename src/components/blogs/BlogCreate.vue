@@ -48,8 +48,8 @@ const closeModal = inject('closeModal');
   gap: 10px;
   .error-message {
     color: red;
-    font-weight: bold;
-    font-size: 22px;
+    font-style: italic;
+    font-size: 20px;
   }
   textarea, input {
     font-size: 18px;

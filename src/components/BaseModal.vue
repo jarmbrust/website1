@@ -9,6 +9,7 @@ provide('closeModal', open);
 </script>
 
 <template>
+  <div :class="{ 'modal-open': open }" />
   <button @click="open=true">{{ props.buttonName }}</button>
   <Teleport to="body">
     <BlogModalContent v-if="open" :closeModal="open" class="modal"/>
@@ -18,6 +19,14 @@ provide('closeModal', open);
 <style lang="scss" scoped>
 @use '@/assets/_variables.scss';
 
+.modal-open {
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 @media screen and (min-width: variables.$device-width) {
   .modal {
     position: fixed;
