@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useBlogStore } from '@/stores/blogStore';
 import { currentDate } from '@/utils/blogUtils';
-import { ref } from 'vue';
+import { inject, ref } from 'vue';
 
 const blogStore = useBlogStore();
 const title = ref('');
@@ -21,6 +21,8 @@ const postNewBlog = async () => {
     errorMessage.value = 'Please fill out all fields.';
   }
 };
+
+const closeModal = inject('closeModal');
 </script>
 
 <template>
@@ -29,13 +31,21 @@ const postNewBlog = async () => {
   <form @submit.prevent="postNewBlog">
     <div class="title">Title:</div> <input class="title" type="text" v-model="title" required />
     <div class="content">Content:</div> <textarea rows="5" cols="42" v-model="body" required />
-    <div><button type="submit">Submit</button></div>
+    <div><button class="submit-button" type="submit">Submit</button></div>
   </form>
+  <button @click="closeModal=false">Close</button>
 </div>
 </template>
 
 <style lang="scss" scoped>
 .blog-post-fields {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   .error-message {
     color: red;
     font-weight: bold;
@@ -52,6 +62,9 @@ const postNewBlog = async () => {
   }
   textarea {
     height: 100px
+  }
+  .submit-button {
+    width: 100%;
   }
 }
 </style>
