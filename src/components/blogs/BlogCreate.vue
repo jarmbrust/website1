@@ -41,8 +41,7 @@ const closeModal = inject('closeModal');
 .blog-post-fields {
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   gap: 10px;
