@@ -21,7 +21,6 @@ Some of them are (in no particular order):
 - [ ] tests!
 - [ ] format blog post input (might need a package).
 - [x] allow for the user to be able to refresh the page and still stay logged in.
-- [ ] remove the "dead" packages I thought I needed at the time.
 - [ ] create a "portfolio" section.
 - [x] scroll blog posts.
 - [ ] route to homepage on bad link.
