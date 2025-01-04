@@ -18,11 +18,9 @@ To reiterate, this is very much a work in progress.  There are a couple of bugs 
 to fix-up and implement.
 Some of them are (in no particular order):
 
-- [ ] tests!
+- [ ] tests.
 - [ ] format blog post input (might need a package).
-- [x] allow for the user to be able to refresh the page and still stay logged in.
 - [ ] create a "portfolio" section.
-- [x] scroll blog posts.
 - [ ] route to homepage on bad link.
 
 ...and more as I think of it.
