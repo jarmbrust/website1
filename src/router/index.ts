@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '@/views/HomeView.vue';
 import { useLoginStore } from '@/stores/loginStore';
+import HomeView from '@/views/HomeView.vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
@@ -58,6 +58,10 @@ const routes = [
       description: 'This is a logout page.',
       keywords: 'logout',
     }
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/',
   },
 ];
 
