@@ -21,7 +21,6 @@ Some of them are (in no particular order):
 - [ ] tests.
 - [ ] format blog post input (might need a package).
 - [ ] create a "portfolio" section.
-- [ ] route to homepage on bad link.
 
 ...and more as I think of it.
 
