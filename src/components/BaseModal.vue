@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BlogModalContent from '@/components/blogs/BlogModalContent.vue';
+import BlogCreate from '@/components/blogs/BlogCreate.vue';
 import { provide, ref } from 'vue';
 
 const open = ref(false)
@@ -12,7 +12,8 @@ provide('closeModal', open);
   <div :class="{ 'modal-open': open }" />
   <button @click="open=true">{{ props.buttonName }}</button>
   <Teleport to="body">
-    <BlogModalContent v-if="open" :closeModal="open" class="modal"/>
+    <BlogCreate v-if="open" :closeModal="open" class="modal"/>
+    <slot></slot>
   </Teleport>
 </template>
 
