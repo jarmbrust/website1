@@ -1,4 +1,16 @@
 <script setup lang="ts">
+import { useLoginStore } from '@/stores/loginStore';
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const loginStore = useLoginStore();
+
+onMounted(() => {
+  if (!loginStore.isLoggedIn) {
+    router.push({ path: '/login' });
+  }
+});
 </script>
 
 <template>

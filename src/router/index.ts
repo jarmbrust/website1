@@ -44,19 +44,9 @@ const routes = [
     path: '/login',
     component: () => import('@/views/UserView.vue'),
     meta: {
-      title: 'James Armbrust - Login',
-      description: 'This is a login page.',
-      keywords: 'login',
-    }
-  },
-  {
-    path: '/logout',
-    component: () => import('@/components/login/LogoutPage.vue'),
-    meta: {
-      requiresLogin: true,
-      title: 'James Armbrust - Logout',
-      description: 'This is a logout page.',
-      keywords: 'logout',
+      title: 'James Armbrust - User Page',
+      description: 'This is a login and logout page.',
+      keywords: 'login, logout',
     }
   },
   {

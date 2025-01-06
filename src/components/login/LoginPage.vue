@@ -27,9 +27,8 @@ const login = async () => {
     userStore.userPermissions = response.token && userStore.isAuthenticated
       ? jwtDecode<{ permissions: string[] }>(response.token)?.permissions
       : [];
-    setTimeout(() => {
-      router.push({ path: '/' });
-    }, 1500);
+    // route to main page on successful login
+    router.push({ path: '/' });
   } else if (response.error) {
     error.value = response.message;
   }

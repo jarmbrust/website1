@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useLoginStore } from '@/stores/loginStore';
+
+const loginStore = useLoginStore();
+</script>
+
 <template>
   <Transition appear name="fade1" mode="out-in">
     <h2>Welcome to my website</h2>
@@ -12,6 +18,7 @@
         not complete, but if you are here, chances are you have a copy of it already.  Of
         course, if you do not have that password, please contact me and I can provide it!
       </p>
+      <p>Your current status is: {{ loginStore.isLoggedIn ? 'logged in.' : 'not logged in.' }}</p>
     </div>
   </Transition>
 </template>

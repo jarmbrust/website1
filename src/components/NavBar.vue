@@ -12,15 +12,17 @@ const isLoggedIn = () => {
 <template>
   <nav>
     <div class="my-name-and-pic">
-      <img class="pic-of-me" src="../assets/james_edit4.jpeg" alt="me" />
+      <img class="pic-of-me" src="../assets/james_armbrust_small.jpeg" alt="James Armbrust nav-pic" />
       <span class="my-name"><RouterLink to="/">James Armbrust</RouterLink></span>
     </div>
     <div class="routes">
       <RouterLink to="/blog">Blog</RouterLink>
       <RouterLink to="/resume">Resume</RouterLink>
       <RouterLink to="/about">About</RouterLink>
-      <span v-if="!isLoggedIn()" class="login"><RouterLink to="/login">Login</RouterLink></span>
-      <span v-else class="logout"><RouterLink to="/logout">Logout</RouterLink></span>
+      <RouterLink to="/login">
+        <span v-if="!isLoggedIn()">Login</span>
+        <span v-else>Logout</span>
+      </RouterLink>
     </div>
   </nav>
 </template>

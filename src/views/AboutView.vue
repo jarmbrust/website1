@@ -13,7 +13,7 @@
           My readings include science fiction, fantasy, and non-fiction history or science/programming books.</p>
       </div>
       <div>
-        <img class="pic-of-me" src="../assets/james_edit5.png" alt="me" />
+        <img class="pic-of-me" src="../assets/james_armbrust.png" alt="James Armbrust" />
       </div>
     </div>
     <div class="mst3k">

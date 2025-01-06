@@ -1,15 +1,17 @@
 <script setup lang="ts">
-// Disabling the ability of users to register for now
-// import RegisterPage from '@/components/login/RegisterPage.vue';
 import LoginPage from '@/components/login/LoginPage.vue';
+import logoutPage from '@/components/login/LogoutPage.vue';
+import { useLoginStore } from '@/stores/loginStore';
+
+const loginStore = useLoginStore();
 
 </script>
 
 <template>
-  <!-- <div class="register">
-    <RegisterPage />
-  </div> -->
-  <div>
-    <LoginPage />
+  <div v-if="loginStore.isLoggedIn">
+    <logoutPage />
+  </div>
+  <div v-else>
+    <LoginPage/>
   </div>
 </template>
