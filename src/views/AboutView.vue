@@ -5,9 +5,10 @@
         <h1>About Me</h1>
         <p>My name is James, and I live in Colorado with my loving wife and our 2 dogs, 3 cats,
           and a small assortment of other critters.</p>
-        <p>My career is in software development, with a background in frontend, backend, and database procedures.
-          My current focus is mostly on the frontend. I have a Bachelor of Science in Computer Science
-          from the University Iowa, and a Bachelor of Arts in History from St. John's University.</p>
+        <p>My career is in software development, with a background in frontend, backend, and database development.
+          My current focus is mostly on the frontend... although I am also interested in full-stack development.
+          I have a Bachelor of Science in Computer Science from the University Iowa, and a Bachelor of
+          Arts in History from St. John's University.</p>
         <p>Hobbies of mine include writing, sketching, pottery, TTRPGs, 4X and rpg computer games, and I enjoy watching
           (sometimes really bad) scifi and fantasy movies.
           My readings include science fiction, fantasy, and non-fiction history or science/programming books.</p>
