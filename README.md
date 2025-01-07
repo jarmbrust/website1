@@ -1,21 +1,18 @@
 # Welcome to my personal website!
 
-This is still very much a work in progress...
-
-It is written in Vue 3, Typescript, Mongodb, and is hosted serverless on Netlify with nodejs.
-
+This site is written in Vue 3, Typescript, Mongodb, and is hosted serverless on Netlify with nodejs.
 State management is through Pinia.
-
 Unit and component tests will be added with vitest as well.
-
 
 If you have any questions, please let me know!
 
 The url for the site is: 
 ``` james3k.com ```
 
-To reiterate, this is very much a work in progress.  There are a couple of bugs and a few things I want
-to fix-up and implement.
+If you would like to login with the "guest" account, which won't give you much in the 
+way of access, but will alow you to see the flow, the password is ```S*mpL3pass```.
+
+To be clear, this is very much a work in progress.  There are a few things I want to fix-up and implement.
 Some of them are (in no particular order):
 
 - [ ] tests.
