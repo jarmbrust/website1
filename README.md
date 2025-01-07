@@ -15,7 +15,7 @@ way of access, but will alow you to see the flow, the password is ```S*mpL3pass`
 To be clear, this is very much a work in progress.  There are a few things I want to fix-up and implement.
 Some of them are (in no particular order):
 
-- [ ] tests.
+- [ ] more tests.
 - [ ] format blog post input (might need a package).
 - [ ] create a "portfolio" section.
 

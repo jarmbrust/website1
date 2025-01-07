@@ -1,11 +1,12 @@
 {
   "extends": "./tsconfig.app.json",
   "exclude": [],
+  "include": ["vite.config.ts", "vitest.config.mts", "tests/**/*.ts", "tests/**/*.js"],
   "compilerOptions": {
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.vitest.tsbuildinfo",
-
+    "outDir": "../../dist/out-tsc",
     "lib": [],
-    "types": ["node", "jsdom"]
+    "types": ["vitest/globals", "vitest/importMeta", "vite/client", "node"]
   }
 }
