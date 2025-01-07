@@ -13,7 +13,6 @@ provide('closeModal', open);
   <button @click="open=true">{{ props.buttonName }}</button>
   <Teleport to="body">
     <BlogCreate v-if="open" :closeModal="open" class="modal"/>
-    <slot></slot>
   </Teleport>
 </template>
 

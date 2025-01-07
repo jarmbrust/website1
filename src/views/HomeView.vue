@@ -18,7 +18,9 @@ const loginStore = useLoginStore();
         not complete, but if you are here, chances are you have a copy of it already.  Of
         course, if you do not have that password, please contact me and I can provide it!
       </p>
-      <p>Your current status is: {{ loginStore.isLoggedIn ? 'logged in.' : 'not logged in.' }}</p>
+      <p>Your current status is:
+        <span class="login-status">{{ loginStore.isLoggedIn ? 'logged in.' : 'not logged in.' }}</span>
+      </p>
     </div>
   </Transition>
 </template>
@@ -54,5 +56,8 @@ const loginStore = useLoginStore();
 .fade3-enter-to,
 .fade4-enter-to {
   opacity: 1;
+}
+.login-status {
+  font-weight: 700;
 }
 </style>
