@@ -10,3 +10,9 @@ export interface LoginResponse {
   message: string;
   token: string | undefined;
 }
+
+export type GetBlogsResponse = {
+  statusCode: number;
+  headers: Record<string, string>;
+  body: Blog[];
+};

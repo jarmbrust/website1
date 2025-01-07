@@ -1,5 +1,5 @@
-import { ref } from 'vue';
 import { Collection, MongoClient, ServerApiVersion } from 'mongodb';
+import { ref } from 'vue';
 
 const blogs = ref<Collection<Document> | null>(null);
 const client = ref<MongoClient | null>(null);
@@ -21,10 +21,10 @@ export default async (request: Request) => {
     blogs.value = database.collection('blogs');
 
     await client.value.connect();
-    const { blogId, title, body, currentDate } = await request.json();
+    const { blogId, title, body, formattedDate } = await request.json();
     const data = {
       blogId,
-      date: currentDate,
+      date: formattedDate,
       title,
       body,
     };

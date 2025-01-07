@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useBlogStore } from '@/stores/blogStore';
-import { currentDate } from '@/utils/blogUtils';
+import { formattedDate } from '@/utils/blogUtils';
 import { inject, ref } from 'vue';
 
 const blogStore = useBlogStore();
@@ -12,7 +12,7 @@ const errorMessage = ref<string | null>(null);
 
 const postNewBlog = async () => {
   if (title.value && body.value) {
-    todaysDate.value = currentDate();
+    todaysDate.value = formattedDate(new Date());
     errorMessage.value = await blogStore.postNewBlog(title.value, body.value, todaysDate.value);
     title.value = '';
     body.value = '';

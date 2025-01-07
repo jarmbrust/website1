@@ -1,4 +1,5 @@
-import { getBlogs, getMaxBlogId, postBlog } from '@/utils/blogUtils'; //, , postBlog, currentDate,
+import { GetBlogsResponse } from '@/types/types';
+import { formattedDate, getBlogs, getMaxBlogId, postBlog } from '@/utils/blogUtils';
 import axios from 'axios';
 import { describe, expect, it, Mock, vi } from 'vitest';
 
@@ -18,7 +19,7 @@ describe('getBlogs', () => {
 
     (axios.get as Mock).mockResolvedValue({ data: { blogs: mockBlogs } });
 
-    const result = await getBlogs();
+    const result: GetBlogsResponse = await getBlogs();
     expect(result).toEqual({
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
@@ -34,7 +35,7 @@ describe('getBlogs', () => {
 
     (axios.get as Mock).mockRejectedValue(mockError);
 
-    const result = await getBlogs();
+    const result: GetBlogsResponse = await getBlogs();
     expect(result).toEqual({
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
@@ -68,7 +69,7 @@ describe('postBlog', () => {
       blogId: 1,
       title: 'New Blog',
       body: 'This is a new blog',
-      currentDate: '2 December 2024',
+      formattedDate: '2 December 2024',
     });
 
     (axios.post as Mock).mockReset();
@@ -86,11 +87,30 @@ describe('postBlog', () => {
       blogId: 1,
       title: 'New Blog',
       body: 'This is a new blog',
-      currentDate: '3 December 2024',
+      formattedDate: '3 December 2024',
     });
 
     (axios.post as Mock).mockReset();
   });
 });
 
+describe('formattedDate', () => {
+  it('should format a date in the correct format', () => {
+    const date = new Date('2024-12-22T14:30:00.000Z');
+    const expectedOutput = '22 December 2024';
+    expect(formattedDate(date)).toBe(expectedOutput);
+  });
 
+  it('should handle dates with different months', () => {
+    const date = new Date('2022-07-04T14:30:00.000Z');
+    const expectedOutput = '4 July 2022';
+    expect(formattedDate(date)).toBe(expectedOutput);
+  });
+
+  it('should handle dates with different days', () => {
+    const date = new Date('2024-12-01T14:30:00.000Z');
+    const expectedOutput = '1 December 2024';
+    expect(formattedDate(date)).toBe(expectedOutput);
+  });
+  // TODO: add test for invalid date
+});

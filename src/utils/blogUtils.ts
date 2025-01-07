@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { type Blog } from '@/types/types';
+import axios from 'axios';
 
 export const getBlogs = async () => {
   try {
@@ -33,18 +33,17 @@ export const getMaxBlogId = (blogs: Blog[]) => {
   return max + 1;
 };
 
-export const postBlog = async (blogId: number, title: string, body: string, currentDate: string) => {
+export const postBlog = async (blogId: number, title: string, body: string, formattedDate: string) => {
   const { data } = await axios.post('/.netlify/functions/postBlog', {
     blogId,
     title,
     body,
-    currentDate,
+    formattedDate,
   });
   return data;
 };
 
-export const currentDate = () => {
-  const date = new Date();
+export const formattedDate = (date: Date) => {
   const year = date.getFullYear();
   const month = date.toLocaleString('default', { month: 'long' });
   const day = String(date.getDate());
