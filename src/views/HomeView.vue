@@ -5,59 +5,46 @@ const loginStore = useLoginStore();
 </script>
 
 <template>
-  <Transition appear name="fade1" mode="out-in">
-    <h2>Welcome to my website</h2>
-  </Transition>
-  <Transition appear name="fade2" mode="out-in">
-    <p>This tiny site is a work in progress and will be updated relatively consistently as time permits.</p>
-  </Transition>
-  <Transition appear name="fade3" mode="out-in">
-    <div>
-      <p>To see some of the pages you will need to login with the password I provided
-        either in my resume or in other correspondence.  Currently, the resume section is
-        not complete, but if you are here, chances are you have a copy of it already.  Of
-        course, if you do not have that password, please contact me and I can provide it!
-      </p>
-      <p>Your current status is:
-        <span class="login-status">{{ loginStore.isLoggedIn ? 'logged in.' : 'not logged in.' }}</span>
-      </p>
-    </div>
+  <h1>Welcome!</h1>
+  <p class="first-line">My name is James Armbrust and I am a software developer based in sunny Colorado!</p>
+  <p>I've been working as a software engineer for over 10 years, and have contributed on a wide variety of projects
+    from large enterprise applications financial applications to small startups and independent companies.
+    My experience includes frontend, backend and database development using a variety of technologies including
+    Vue, React, Node.js, and SQL -- as well as several others.
+    My current focus is <span class="italic">mostly</span> on the frontend... although I am open
+    to returning to full-stack development and would be happy to move back into such a role if the opportunity arose.
+    I will include more about my skills in the Resume section once it is completed.
+  </p>
+  <p>As eluded to above, this tiny corner of the web is a work in progress. However, feel free to check it out!
+    Everything here was written with Vue 3, TypeScript, and SCSS, with Node.js and Mongodb as the serverless backend.
+  </p>
+
+  <Transition appear name="fade" mode="out-in">
+    <p>Your current status is:
+      <span class="login-status">{{ loginStore.isLoggedIn ? 'logged in.' : 'not logged in.' }}</span>
+    </p>
   </Transition>
 </template>
 
 <style lang="scss" scoped>
-.fade1-enter-from,
-.fade2-enter-from,
-.fade3-enter-from {
-  opacity: 0;
-  transform: translateY(-500px);
-}
-// not using this one for now
-.fade4-enter-from {
+.fade-enter-from {
   opacity: 0;
   transform: translateX(-1000px);
 }
 
-.fade1-enter-active {
-  transition: all 0.5s ease-out;
-}
-.fade2-enter-active {
-  transition: all 1.0s ease-out;
-}
-.fade3-enter-active {
-  transition: all 1.5s ease-out;
-}
-.fade4-enter-active {
+.fade-enter-active {
   transition: all 2.0s ease-out;
 }
-
-.fade1-enter-to,
-.fade2-enter-to,
-.fade3-enter-to,
-.fade4-enter-to {
+.fade-enter-to {
   opacity: 1;
 }
 .login-status {
   font-weight: 700;
+}
+.italic {
+  font-style: italic;
+}
+.first-line {
+  font-size: 20px;
 }
 </style>
