@@ -6,12 +6,12 @@ const loginStore = useLoginStore();
 
 <template>
   <h1>Welcome!</h1>
-  <p class="first-line">My name is James Armbrust and I am a software developer based in sunny Colorado!</p>
+  <h2 class="first-line">My name is James Armbrust and I am a software developer based in sunny Colorado!</h2>
   <p>I've been working as a software engineer for over 10 years, and have contributed on a wide variety of projects
-    from large enterprise applications financial applications to small startups and independent companies.
+    from large enterprise financial applications, to small startups and independent companies.
     My experience includes frontend, backend and database development using a variety of technologies including
     Vue, React, Node.js, and SQL -- as well as several others.
-    My current focus is <span class="italic">mostly</span> on the frontend... although I am open
+    My current focus is mostly on the frontend... that said, I very am open
     to returning to full-stack development and would be happy to move back into such a role if the opportunity arose.
     I will include more about my skills in the Resume section once it is completed.
   </p>
