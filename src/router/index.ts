@@ -25,7 +25,7 @@ const routes = [
     path: '/resume',
     component: () => import('@/views/ResumeView.vue'),
     meta: {
-      requiresLogin: true,
+      // requiresLogin: true,
       title: 'James Armbrust - Resume',
       description: 'This is a resume page.',
       keywords: 'resume',

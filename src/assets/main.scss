@@ -1,10 +1,8 @@
-@use './_variables.scss';
-
 body {
   min-height: 100vh;
   margin: 0 30px;
   color: #f8f8f8;
-  background: variables.$background-color;
+  background: rgb(32, 37, 39);
   line-height: 1.6;
   font-family:
     Inter,
@@ -29,6 +27,10 @@ body {
   }
   h2 {
     font-size: 20px;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 18px;
     font-weight: 600;
   }
   button {

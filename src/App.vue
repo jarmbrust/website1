@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
 import NavBar from '@/components/NavBar.vue';
+import { RouterView } from 'vue-router';
 import SiteFooter from './components/SiteFooter.vue';
 </script>
 
@@ -14,7 +14,7 @@ import SiteFooter from './components/SiteFooter.vue';
     </main>
     <footer>
       <SiteFooter>
-        James Armbrust © 2025
+        © 2025 James Armbrust
       </SiteFooter>
     </footer>
   </div>

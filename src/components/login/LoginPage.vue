@@ -47,9 +47,11 @@ const resetInputs = (resetAll = false) => {
 <template>
   <div class="login">
     <h1>Login</h1>
-    <p class="note">Some pages require that you are logged in to access, at least at the lowest permission level.
-      The login process requires a cookie (which is only use for this purpose and will expire in 1 hour).
-      If you have forgotten your password, please contact me.</p>
+    <p>Logging in with the "guest" account will not give you access to anything special right now
+      (other than show you as logged in, and storing a cookie which will be removed after 1 hour
+      or when you logout).</p>
+    <p>The password for the "guest" account is located in the README on GitHub. The link is on the
+      resume page.</p>
     <p class="note">You will be redirected to the home page after a successful login.</p>
     <form @submit.prevent="login" class="login-form">
       <div class="error" v-if="error">{{ error }}</div>
