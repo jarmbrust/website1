@@ -11,7 +11,7 @@ const loginStore = useLoginStore();
     from large enterprise financial applications, to small startups and independent companies.
     My experience includes frontend, backend and database development using a variety of technologies including
     Vue, React, Node.js, and SQL -- as well as several others.
-    My current focus is mostly on the frontend... that said, I very am open
+    My current focus is mostly on the frontend... that said, I am open
     to returning to full-stack development and would be happy to move back into such a role if the opportunity arose.
     I will include more about my skills in the Resume section once it is completed.
   </p>
