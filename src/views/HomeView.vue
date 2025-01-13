@@ -6,7 +6,7 @@ const loginStore = useLoginStore();
 
 <template>
   <h1>Welcome!</h1>
-  <h2 class="first-line">My name is James Armbrust and I am a software developer based in sunny Colorado!</h2>
+  <h2>My name is James Armbrust and I am a software developer based in sunny Colorado!</h2>
   <p>I've been working as a software engineer for over 10 years, and have contributed on a wide variety of projects
     from large enterprise financial applications, to small startups and independent companies.
     My experience includes frontend, backend and database development using a variety of technologies.
@@ -41,8 +41,5 @@ const loginStore = useLoginStore();
 }
 .italic {
   font-style: italic;
-}
-.first-line {
-  font-size: 20px;
 }
 </style>

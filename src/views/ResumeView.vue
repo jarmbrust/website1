@@ -2,7 +2,7 @@
   <div>
     <h1>Technical Experience</h1>
     <h2>I have a wide variety of technical experience and am always looking to learn new things.  My recent
-      focus has primarily been on the frontend, but I have also worked on backend and in database development
+      focus is primarily on the frontend, however I have also worked on backend and in database development
       and would be happy to return to a fullstack role if the opportunity arose.
     </h2>
     <div class="background">
@@ -30,15 +30,14 @@
         <li>CSS / SCSS</li>
         <li>Git</li>
         <li>Node.js</li>
-        <li>Express</li>
         <li>PostgresSQL</li>
-        <li>TSQL</li>
+        <li>SQL Server</li>
         <li>jQuery</li>
         <li>Java</li>
         </ul>
       </div>
       <div class="technologies">
-        <ul><div class="title">Technologies I am Learning and/or have used in Personal Projects</div>
+        <ul><div class="title">Technologies I am Learning or used in Personal Projects</div>
           <li>Nuxt</li>
           <li>Next</li>
           <li>Mongodb</li>
@@ -48,7 +47,7 @@
     </div>
   </div>
   <h1>Work Experience</h1>
-  <p>*Please see Resume, this will be updated here soon...</p>
+  <p>* Please see Resume, this will be updated soon...</p>
   <h3>For now, feel free to checkout out my Github account which has the code for this site.
     You can find the code here: <a target="_blank" href="https://github.com/jarmbrust/website1">Github</a>.</h3>
 </template>
@@ -67,7 +66,7 @@
     flex-direction: column;
   }
   .technologies {
-    background-color: darkgrey;
+    background-color: rgb(198, 237, 247);
     color: #111;
     gap: 3px;
     padding: 10px;

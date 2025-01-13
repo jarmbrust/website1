@@ -52,7 +52,7 @@ const resetInputs = (resetAll = false) => {
       or when you logout).</p>
     <p>The password for the "guest" account is located in the README on GitHub. The link is on the
       resume page.</p>
-    <p class="note">You will be redirected to the home page after a successful login.</p>
+    <p class="note">You will be redirected to the homepage after a successful login.</p>
     <form @submit.prevent="login" class="login-form">
       <div class="error" v-if="error">{{ error }}</div>
       <div class="success" v-else>{{ userMessage }}</div>
