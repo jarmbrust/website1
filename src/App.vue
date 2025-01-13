@@ -32,8 +32,15 @@ import SiteFooter from './components/SiteFooter.vue';
     line-height: 1.5;
     border-bottom:rgb(195, 201, 220) 1px solid;
   }
-  main {
-    margin: variables.$content-margin;
+  @media screen and (max-width: variables.$device-width) {
+    main {
+      margin: 0;
+    }
+  }
+  @media screen and (min-width: variables.$device-width) {
+    main {
+      margin: variables.$content-margin;
+    }
   }
   footer {
     margin-top: auto;

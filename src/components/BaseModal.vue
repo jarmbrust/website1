@@ -18,6 +18,7 @@ provide('closeModal', open);
 
 <style lang="scss" scoped>
 @use '@/assets/_variables.scss';
+$modal-width-small: 250px;
 
 .modal-open {
   background-color: rgba(0,0,0,0.5);
@@ -41,8 +42,9 @@ provide('closeModal', open);
   .modal {
     position: fixed;
     top: 15%;
-    left: 0%;
-    width: 100%;
+    left: 45%;
+    width: $modal-width-small;
+    margin-left: calc(($modal-width-small / 2) * -1);
     background-color: #222;
   }
 }
