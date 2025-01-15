@@ -19,12 +19,12 @@
         </ul>
       </div>
       <div class="technologies">
-        <ul><div class="title">Technologies I have used Professionally</div>
+        <ul><div class="title">Technologies I have experience with Professionally</div>
         <li>TypeScript</li>
         <li>JavaScript</li>
-        <li>Vue / Pinia</li>
+        <li>Vue</li>
         <li>Vitest</li>
-        <li>React / Redux</li>
+        <li>React</li>
         <li>Jest</li>
         <li>HTML</li>
         <li>CSS / SCSS</li>
@@ -38,8 +38,8 @@
       </div>
       <div class="technologies">
         <ul><div class="title">Technologies I am Learning or used in Personal Projects</div>
+          <li>Next.js</li>
           <li>Nuxt</li>
-          <li>Next</li>
           <li>Mongodb</li>
           <li>Python</li>
         </ul>
