@@ -12,7 +12,7 @@ The url for the site is:
 If you would like to login with the "guest" account, which won't give you much in the 
 way of access, but will alow you to see the flow, the password is ```S*mpL3pass```.
 
-To be clear, this is more or less a work in progress.  There are a few more things I want to fix-up or implement.
+There are a few more things I want to fix-up or implement.
 Some of them are (in no particular order):
 
 - [ ] more tests.
@@ -21,41 +21,3 @@ Some of them are (in no particular order):
 - [ ] create a "portfolio" section.
 
 ...and more as I think of it.
-
---- 
-
-Below is the generic setup, but the site will not work fully without connection URI to the db and running on: 
-
-```sh
-netlify dev
-```
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
