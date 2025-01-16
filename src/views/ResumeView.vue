@@ -33,7 +33,6 @@
         <li>PostgresSQL</li>
         <li>SQL Server</li>
         <li>jQuery</li>
-        <li>Java</li>
         </ul>
       </div>
       <div class="technologies">

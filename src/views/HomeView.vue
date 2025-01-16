@@ -10,8 +10,6 @@ const loginStore = useLoginStore();
   <p>I've been working as a software engineer for over 10 years, and have contributed on a wide variety of projects
     from large enterprise financial applications, to small startups and independent companies.
     My experience includes frontend, backend and database development using a variety of technologies.
-    My current focus is mostly on the frontend... that said, I am open
-    to returning to full-stack development and would be happy to move back into such a role if the opportunity arose.
   </p>
   <p>As eluded to above, this tiny corner of the web is a work in progress. However, feel free to check it out!
     Everything here was written with Vue 3, TypeScript, and SCSS, with Node.js and Mongodb as the serverless backend.
