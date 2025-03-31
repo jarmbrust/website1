@@ -1,9 +1,8 @@
 <template>
   <div>
     <h1>Technical Experience</h1>
-    <h2>I have a wide variety of technical experience and am always looking to learn new things.  My recent
-      focus is primarily on the frontend, however I have also worked on backend and in database development
-      and would be happy to return to a fullstack role if the opportunity arose.
+    <h2>I have a wide variety of technical experience and am always looking to learn new things.  My current
+      focus is on frontend development, but I have also worked on fullstack development.
     </h2>
     <div class="background">
       <div class="technologies">
@@ -19,7 +18,7 @@
         </ul>
       </div>
       <div class="technologies">
-        <ul><div class="title">Technologies I have experience with Professionally</div>
+        <ul><div class="title">Technologies I have worked with.</div>
         <li>TypeScript</li>
         <li>JavaScript</li>
         <li>Vue</li>
@@ -30,25 +29,15 @@
         <li>CSS / SCSS</li>
         <li>Git</li>
         <li>Node.js</li>
+        <li>Next.js</li>
         <li>PostgresSQL</li>
         <li>SQL Server</li>
+        <li>Mongodb</li>
         <li>jQuery</li>
-        </ul>
-      </div>
-      <div class="technologies">
-        <ul><div class="title">Technologies I am Learning or used in Personal Projects</div>
-          <li>Next.js</li>
-          <li>Nuxt</li>
-          <li>Mongodb</li>
-          <li>Python</li>
         </ul>
       </div>
     </div>
   </div>
-  <h1>Work Experience</h1>
-  <p>* Please see Resume, this will be updated soon...</p>
-  <h3>For now, feel free to checkout out my Github account which has the code for this site.
-    You can find the code here: <a target="_blank" href="https://github.com/jarmbrust/website1">Github</a>.</h3>
 </template>
 
 <style lang="scss" scoped>
